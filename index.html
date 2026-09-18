@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arya Living · Apresentação ao vivo — Cabo Branco, João Pessoa</title>
+<meta name="description" content="Flats na planta a 250 m do mar de Cabo Branco. Entrada de R$ 44.500, 48× de R$ 927. Apresentação ao vivo com tabela aberta e condição exclusiva.">
+<meta property="og:title" content="Arya Living · Apresentação ao vivo — Cabo Branco, João Pessoa">
+<meta property="og:description" content="Flats na planta a 250 m do mar de Cabo Branco. Entrada de R$ 44.500, 48× de R$ 927. Apresentação ao vivo com tabela aberta e condição exclusiva.">
+<meta property="og:image" content="img/fachada-dia.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:,">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #14200F; -webkit-font-smoothing: antialiased; }
+  a { color: #E8B07C; text-decoration: none; }
+  a:hover { color: #F0C79B; }
+  @keyframes arRise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes arPulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+  input:focus { outline: none; }
+  ::selection { background: #B4571B; color: #FAF7EC; }
+</style>
+</helmet>
+
+<div style="font-family: Jost, system-ui, sans-serif; color: #F5F0DE; background: #14200F; overflow-x: hidden">
+
+  <div style="position: sticky; top: 0; z-index: 60; background: #B4571B">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; text-align: center">
+      <span style="width: 8px; height: 8px; border-radius: 50%; background: #FAF7EC; animation: arPulse 1.8s ease-in-out infinite; flex: none"></span>
+      <span style="font-size: 13.5px; letter-spacing: .08em; font-weight: 500; color: #FFF6E8">APRESENTAÇÃO AO VIVO · {{ liveData }} · {{ liveHora }}</span>
+    </div>
+  </div>
+
+  <section style="position: relative; background: #14200F; overflow: hidden">
+    <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+      <video ref="{{ videoRef }}" data-src="{{ videoSrc }}" poster="img/fachada-dia.jpg" autoplay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsinline="{{ true }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55"></video>
+    </sc-if>
+    <sc-if value="{{ noVideo }}" hint-placeholder-val="{{ true }}">
+      <img src="img/fachada-dia.jpg" alt="Fachada do Arya Living em Cabo Branco" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55" />
+    </sc-if>
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,32,15,.55) 0%, rgba(20,32,15,.82) 55%, #14200F 100%)"></div>
+    <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: clamp(36px, 5vw, 70px) 20px clamp(48px, 6vw, 90px)">
+      <div style="display: flex; flex-direction: column; line-height: 1; margin-bottom: clamp(34px, 4.5vw, 60px)">
+        <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 38px; color: #F5F0DE">arya</span>
+        <span style="font-size: 10px; letter-spacing: .42em; color: #C9A97E; margin-top: 4px">LIVING · CABO BRANCO</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(32px, 4vw, 64px); align-items: start">
+        <div style="animation: arRise .7s ease both">
+          <div style="font-size: 13px; letter-spacing: .18em; font-weight: 500; color: #E8B07C; margin-bottom: 22px; line-height: 1.5">VOCÊ PESQUISOU IMÓVEL NA PRAIA. E FECHOU A ABA NO PREÇO.</div>
+          <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(46px, 7.5vw, 92px); line-height: .96; letter-spacing: -.02em; margin: 0 0 16px; text-wrap: pretty">Cabo Branco, na planta.</h1>
+          <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(24px, 3.4vw, 36px); line-height: 1.25; color: #E8B07C; margin: 0 0 26px; text-wrap: pretty">Entrada de R$ 44.500. 48× de R$ 927. 4 anuais de R$ 11.125.</p>
+          <p style="font-size: clamp(17px, 2vw, 21px); font-weight: 300; line-height: 1.6; color: #F5F0DE; margin: 0 0 32px; max-width: 540px; text-wrap: pretty">Fluxo real de uma unidade de R$ 445 mil — 30% na obra, 70% nas chaves. Ao vivo: tabela, quem é a incorporadora e o que ela já entregou, localização, plantas e fluxo. E uma condição que <strong style="font-weight: 500">só existe durante a transmissão</strong>.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 14px 36px; padding: 22px 0; border-top: 1px solid rgba(245,240,222,.2); border-bottom: 1px solid rgba(245,240,222,.2)">
+            <div>
+              <div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; line-height: 1">{{ liveData }}</div>
+              <div style="font-size: 12px; letter-spacing: .16em; color: rgba(231,225,195,.7); margin-top: 6px">DATA</div>
+            </div>
+            <div>
+              <div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; line-height: 1">{{ liveHora }}</div>
+              <div style="font-size: 12px; letter-spacing: .16em; color: rgba(231,225,195,.7); margin-top: 6px">BRASÍLIA</div>
+            </div>
+            <div>
+              <div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; line-height: 1">{{ plataforma }}</div>
+              <div style="font-size: 12px; letter-spacing: .16em; color: rgba(231,225,195,.7); margin-top: 6px">ONDE</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="inscricao" style="background: #FFFDF6; color: #201A16; padding: clamp(26px, 3vw, 40px); border-radius: 4px; animation: arRise .8s .1s ease both">
+          <div style="font-size: 12.5px; letter-spacing: .2em; font-weight: 500; color: #B4571B; margin-bottom: 10px">GARANTA SUA VAGA</div>
+          <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(28px, 3vw, 36px); line-height: 1.1; margin: 0 0 10px">Link, lembrete e tabela no seu WhatsApp.</h2>
+          <p style="font-size: 16px; font-weight: 300; line-height: 1.55; color: #55503F; margin: 0 0 24px">Dois campos. A confirmação chega no seu WhatsApp.</p>
+          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onSubmit }}" style="display: flex; flex-direction: column; gap: 14px">
+            <label style="display: flex; flex-direction: column; gap: 7px">
+              <span style="font-size: 12px; letter-spacing: .16em; font-weight: 500; color: #736B59">SEU NOME</span>
+              <input type="text" name="nome" required="{{ true }}" placeholder="Como quer ser chamado" style="background: #FAF7EC; border: 1px solid #CFC7AA; color: #201A16; font-family: Jost, sans-serif; font-size: 17px; padding: 16px 18px; border-radius: 3px; min-height: 52px; box-sizing: border-box" style-focus="border-color: #B4571B" />
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 7px">
+              <span style="font-size: 12px; letter-spacing: .16em; font-weight: 500; color: #736B59">WHATSAPP COM DDD</span>
+              <input type="tel" name="whats" required="{{ true }}" placeholder="(83) 9 0000-0000" onInput="{{ clearFormError }}" style="background: #FAF7EC; border: 1px solid #CFC7AA; color: #201A16; font-family: Jost, sans-serif; font-size: 17px; padding: 16px 18px; border-radius: 3px; min-height: 52px; box-sizing: border-box" style-focus="border-color: #B4571B" />
+            </label>
+            <sc-if value="{{ hasFormError }}" hint-placeholder-val="{{ false }}">
+            <div role="alert" style="background: #FBEAE0; border: 1px solid #E3A77F; color: #8E3A12; border-radius: 3px; padding: 14px 16px; font-size: 15px; line-height: 1.5">{{ formError }}</div>
+            </sc-if>
+            <button type="submit" disabled="{{ sending }}" style="background: #B4571B; color: #FAF7EC; border: none; font-family: Jost, sans-serif; font-size: 14.5px; letter-spacing: .12em; font-weight: 600; padding: 0 26px; min-height: 58px; border-radius: 3px; cursor: pointer; margin-top: 4px" style-hover="background: #C96A24">{{ btnLabel }}</button>
+          </form>
+          <p style="font-size: 13.5px; color: #736B59; line-height: 1.55; margin: 16px 0 0">{{ vagasLabel }} · A condição exclusiva é anunciada só ao vivo.</p>
+          </sc-if>
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="background: #E7E1C3; border-radius: 4px; padding: 24px">
+            <div style="font-size: 12.5px; letter-spacing: .2em; font-weight: 500; color: #8E4413; margin-bottom: 10px">VAGA GARANTIDA</div>
+            <p style="font-size: 18px; font-weight: 300; line-height: 1.5; margin: 0 0 18px; color: #201A16">{{ sentMsg }}</p>
+            <sc-if value="{{ hasRedirect }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ redirectUrl }}" style="display: inline-flex; align-items: center; background: #B4571B; color: #FAF7EC; padding: 0 24px; min-height: 52px; font-size: 14px; letter-spacing: .12em; font-weight: 600; border-radius: 3px">CONTINUAR</a>
+            </sc-if>
+          </div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apresentacao" style="background: #201A16; padding: clamp(60px, 7vw, 100px) 20px">
+    <div style="max-width: 1100px; margin: 0 auto">
+      <div style="font-size: 13px; letter-spacing: .2em; font-weight: 500; color: #C96A24; margin-bottom: 18px">O QUE VOCÊ VAI VER</div>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.05; margin: 0 0 clamp(30px, 4vw, 48px); text-wrap: pretty">Quarenta minutos que decidem se Cabo Branco vira endereço — ou continua foto de viagem.</h2>
+      <figure data-reveal="" style="margin: 0 0 clamp(30px, 4vw, 48px); aspect-ratio: 16/9; overflow: hidden; border-radius: 4px">
+        <img src="img/cabo-branco.jpg" alt="Orla de Cabo Branco, João Pessoa" style="width: 100%; height: 100%; object-fit: cover; display: block" />
+      </figure>
+      <div style="border-top: 1px solid rgba(245,240,222,.18)">
+        <div data-reveal="" style="display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(245,240,222,.18); align-items: baseline">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #C96A24; flex: none; width: 40px">01</span>
+          <div>
+            <h3 style="font-size: clamp(19px, 2.2vw, 24px); font-weight: 400; margin: 0 0 6px; line-height: 1.3">Quanto custa, de verdade</h3>
+            <p style="font-size: 17px; font-weight: 300; line-height: 1.55; color: rgba(245,240,222,.78); margin: 0">Entrada, parcela e anuais de cada unidade que ainda existe. Sem “consulte valores”. Você sai sabendo se cabe no seu bolso — ou não.</p>
+          </div>
+        </div>
+        <div data-reveal="" style="display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(245,240,222,.18); align-items: baseline">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #C96A24; flex: none; width: 40px">02</span>
+          <div>
+            <h3 style="font-size: clamp(19px, 2.2vw, 24px); font-weight: 400; margin: 0 0 6px; line-height: 1.3">Quem está construindo</h3>
+            <p style="font-size: 17px; font-weight: 300; line-height: 1.55; color: rgba(245,240,222,.78); margin: 0">A Nordeste Incorporações e o que ela já entregou na região. Você conhece quem assina a obra antes de decidir.</p>
+          </div>
+        </div>
+        <div data-reveal="" style="display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(245,240,222,.18); align-items: baseline">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #C96A24; flex: none; width: 40px">03</span>
+          <div>
+            <h3 style="font-size: clamp(19px, 2.2vw, 24px); font-weight: 400; margin: 0 0 6px; line-height: 1.3">Onde você vai acordar</h3>
+            <p style="font-size: 17px; font-weight: 300; line-height: 1.55; color: rgba(245,240,222,.78); margin: 0">Localização, plantas e a estrutura do prédio, dois quarteirões do mar de Cabo Branco. Você visualiza antes de decidir — não depois.</p>
+          </div>
+        </div>
+        <div data-reveal="" style="display: flex; gap: 20px; padding: 24px 20px; border-bottom: 1px solid rgba(245,240,222,.18); align-items: baseline; background: rgba(180,87,27,.16)">
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #E8B07C; flex: none; width: 40px">04</span>
+          <div>
+            <h3 style="font-size: clamp(19px, 2.2vw, 24px); font-weight: 400; margin: 0 0 6px; line-height: 1.3">{{ condTitulo }}</h3>
+            <p style="font-size: 17px; font-weight: 300; line-height: 1.55; color: rgba(245,240,222,.86); margin: 0">{{ condTexto }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plantas" style="background: #E7E1C3; color: #201A16; padding: clamp(60px, 7vw, 100px) 20px">
+    <div style="max-width: 1200px; margin: 0 auto">
+      <div style="max-width: 720px; margin-bottom: clamp(30px, 4vw, 48px)">
+        <div style="font-size: 13px; letter-spacing: .2em; font-weight: 500; color: #8E4413; margin-bottom: 18px">AS UNIDADES</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.05; margin: 0 0 18px; text-wrap: pretty">Studios de 20 a 26 m². Um quarto de 35 e 41 m².</h2>
+        <p style="font-size: 17.5px; font-weight: 300; line-height: 1.6; color: #3E382C; margin: 0; text-wrap: pretty">Metragem enxuta, ticket de entrada baixo. É a unidade compacta que lidera a valorização no índice nacional. <span style="color: #8E4413">Toque numa planta para ampliar.</span></p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: clamp(14px, 1.6vw, 22px)">
+        <figure data-reveal="" onClick="{{ openPlanta }}" style="margin: 0; background: #FFFDF6; border: 1px solid #D3CBAE; border-radius: 4px; overflow: hidden; cursor: zoom-in" style-hover="border-color: #B4571B">
+          <img src="img/planta-studio20.jpg" alt="Planta do studio de 20 e 24 m²" style="width: 100%; display: block" />
+          <figcaption style="padding: 18px 20px; font-size: 15px; letter-spacing: .08em; font-weight: 500; color: #8E4413; border-top: 1px solid #E5DDC2">STUDIO · 20 e 24 m²</figcaption>
+        </figure>
+        <figure data-reveal="" onClick="{{ openPlanta }}" style="margin: 0; background: #FFFDF6; border: 1px solid #D3CBAE; border-radius: 4px; overflow: hidden; cursor: zoom-in" style-hover="border-color: #B4571B">
+          <img src="img/planta-studio26.jpg" alt="Planta do studio de 26 m²" style="width: 100%; display: block" />
+          <figcaption style="padding: 18px 20px; font-size: 15px; letter-spacing: .08em; font-weight: 500; color: #8E4413; border-top: 1px solid #E5DDC2">STUDIO · 26 m²</figcaption>
+        </figure>
+        <figure data-reveal="" onClick="{{ openPlanta }}" style="margin: 0; background: #FFFDF6; border: 1px solid #D3CBAE; border-radius: 4px; overflow: hidden; cursor: zoom-in" style-hover="border-color: #B4571B">
+          <img src="img/planta-1q35.jpg" alt="Planta do apartamento de 1 quarto com 35 m²" style="width: 100%; display: block" />
+          <figcaption style="padding: 18px 20px; font-size: 15px; letter-spacing: .08em; font-weight: 500; color: #8E4413; border-top: 1px solid #E5DDC2">1 QUARTO · 35 m²</figcaption>
+        </figure>
+        <figure data-reveal="" onClick="{{ openPlanta }}" style="margin: 0; background: #FFFDF6; border: 1px solid #D3CBAE; border-radius: 4px; overflow: hidden; cursor: zoom-in" style-hover="border-color: #B4571B">
+          <img src="img/planta-1q41.jpg" alt="Planta do apartamento de 1 quarto com 41 m²" style="width: 100%; display: block" />
+          <figcaption style="padding: 18px 20px; font-size: 15px; letter-spacing: .08em; font-weight: 500; color: #8E4413; border-top: 1px solid #E5DDC2">1 QUARTO · 41 m²</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="estrutura" style="background: #201A16; padding: clamp(60px, 7vw, 100px) 20px">
+    <div style="max-width: 1200px; margin: 0 auto">
+      <div style="max-width: 720px; margin-bottom: clamp(30px, 4vw, 48px)">
+        <div style="font-size: 13px; letter-spacing: .2em; font-weight: 500; color: #C96A24; margin-bottom: 18px">A ESTRUTURA</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.05; margin: 0 0 18px; text-wrap: pretty">O prédio faz o que o studio não precisa fazer.</h2>
+        <p style="font-size: 17.5px; font-weight: 300; line-height: 1.6; color: rgba(245,240,222,.78); margin: 0; text-wrap: pretty">Lobby, cafeteria, coworking, academia, espaço kids e lavanderia. Perspectivas artísticas.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(12px, 1.4vw, 18px)">
+        <figure data-reveal="" style="margin: 0; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px"><img src="img/lobby.jpg" alt="Lobby" style="width: 100%; height: 100%; object-fit: cover; display: block" /></figure>
+        <figure data-reveal="" style="margin: 0; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px"><img src="img/cafeteria.jpg" alt="Cafeteria" style="width: 100%; height: 100%; object-fit: cover; display: block" /></figure>
+        <figure data-reveal="" style="margin: 0; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px"><img src="img/coworking.jpg" alt="Coworking" style="width: 100%; height: 100%; object-fit: cover; display: block" /></figure>
+        <figure data-reveal="" style="margin: 0; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px"><img src="img/academia.jpg" alt="Academia" style="width: 100%; height: 100%; object-fit: cover; display: block" /></figure>
+        <figure data-reveal="" style="margin: 0; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px"><img src="img/kids.jpg" alt="Espaço kids" style="width: 100%; height: 100%; object-fit: cover; display: block" /></figure>
+        <figure data-reveal="" style="margin: 0; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px"><img src="img/lavanderia.jpg" alt="Lavanderia" style="width: 100%; height: 100%; object-fit: cover; display: block" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="mecanismo" style="background: #FAF7EC; color: #201A16; padding: clamp(60px, 7vw, 100px) 20px">
+    <div style="max-width: 1200px; margin: 0 auto">
+      <div style="max-width: 720px; margin-bottom: clamp(30px, 4vw, 48px)">
+        <div style="font-size: 13px; letter-spacing: .2em; font-weight: 500; color: #B4571B; margin-bottom: 18px">POR QUE É POSSÍVEL</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.05; margin: 0 0 18px; text-wrap: pretty">R$ 927 por mês. Sem banco até as chaves.</h2>
+        <p style="font-size: 17.5px; font-weight: 300; line-height: 1.6; color: #55503F; margin: 0; text-wrap: pretty">Imóvel pronto exige capital à vista ou financiamento imediato. Na planta, você paga o tempo da obra — direto com a incorporadora. Exemplo com uma unidade de <strong style="font-weight: 500">R$ 445.000</strong>:</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: clamp(14px, 1.6vw, 22px); margin-bottom: clamp(24px, 3vw, 36px)">
+        <div data-reveal="" style="background: #FFFDF6; border: 1px solid #DDD6BC; border-radius: 4px; padding: clamp(24px, 2.8vw, 36px)">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 4.5vw, 56px); line-height: 1; color: #B4571B">10%</div>
+          <h3 style="font-size: 20px; font-weight: 400; margin: 14px 0 6px">de entrada · R$ 44.500</h3>
+          <p style="font-size: 16px; font-weight: 300; line-height: 1.55; color: #55503F; margin: 0">Sinal no ato da assinatura.</p>
+        </div>
+        <div data-reveal="" style="background: #FFFDF6; border: 1px solid #DDD6BC; border-radius: 4px; padding: clamp(24px, 2.8vw, 36px)">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 4.5vw, 56px); line-height: 1; color: #B4571B">48×</div>
+          <h3 style="font-size: 20px; font-weight: 400; margin: 14px 0 6px">R$ 927 durante a obra</h3>
+          <p style="font-size: 16px; font-weight: 300; line-height: 1.55; color: #55503F; margin: 0">Mais 4 anuais de R$ 11.125. Direto com a incorporadora, sem juros bancários.</p>
+        </div>
+        <div data-reveal="" style="background: #FFFDF6; border: 1px solid #DDD6BC; border-radius: 4px; padding: clamp(24px, 2.8vw, 36px)">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 4.5vw, 56px); line-height: 1; color: #B4571B">70%</div>
+          <h3 style="font-size: 20px; font-weight: 400; margin: 14px 0 6px">só nas chaves · R$ 311.500</h3>
+          <p style="font-size: 16px; font-weight: 300; line-height: 1.55; color: #55503F; margin: 0">Quando o imóvel já existe e pode ser financiado.</p>
+        </div>
+      </div>
+      <div data-reveal="" style="background: #201A16; color: #F5F0DE; border-radius: 4px; padding: clamp(24px, 3vw, 40px); display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center; justify-content: space-between">
+        <div style="flex: 1 1 280px">
+          <div style="font-size: 12.5px; letter-spacing: .18em; font-weight: 500; color: #E8B07C; margin-bottom: 10px">TOTAL · R$ 445.000</div>
+          <p style="font-size: 18px; font-weight: 300; line-height: 1.55; margin: 0">30% ao longo da obra, 70% nas chaves. Na live, montamos o fluxo com a <strong style="font-weight: 500">sua</strong> entrada.</p>
+        </div>
+        <a href="#inscricao" style="background: #B4571B; color: #FAF7EC; padding: 0 28px; min-height: 54px; display: inline-flex; align-items: center; font-size: 14px; letter-spacing: .12em; font-weight: 600; border-radius: 3px; flex: none" style-hover="background: #C96A24">SIMULAR AO VIVO</a>
+      </div>
+      <p style="font-size: 13.5px; color: #736B59; line-height: 1.55; margin: 18px 0 0">Tabela de 14/09/2026. Sujeito a análise de crédito, correção contratual e disponibilidade. Não constitui promessa de rentabilidade.</p>
+    </div>
+  </section>
+
+  <section id="local" style="background: #1B2A1C">
+    <div style="max-width: 1200px; margin: 0 auto; padding-bottom: clamp(48px, 6vw, 90px)">
+      <figure data-reveal="" style="margin: 0; aspect-ratio: 16/9; overflow: hidden">
+        <img src="img/mapa.jpg" alt="Localização do Arya Living na Rua Dr. Frutuoso Dantas, Cabo Branco" style="width: 100%; height: 100%; object-fit: contain; display: block" />
+      </figure>
+      <div style="padding: clamp(36px, 4.5vw, 60px) 20px 0; max-width: 820px">
+        <div style="font-size: 13px; letter-spacing: .2em; font-weight: 500; color: #C9A97E; margin-bottom: 18px">A LOCALIZAÇÃO</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.05; margin: 0 0 18px; text-wrap: pretty">250 metros do mar. Dois quarteirões.</h2>
+        <p style="font-size: 17.5px; font-weight: 300; line-height: 1.6; color: rgba(245,240,222,.84); margin: 0 0 26px; text-wrap: pretty">Não é beira-mar — e é por isso que o preço ainda faz sentido. Rua Dr. Frutuoso Dantas, 457: mercado, padaria, academia e restaurante no mesmo raio de caminhada.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px 36px">
+          <div>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 34px; line-height: 1">250 m</div>
+            <div style="font-size: 12.5px; letter-spacing: .16em; color: rgba(231,225,195,.7); margin-top: 6px">ATÉ A AREIA</div>
+          </div>
+          <div>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 34px; line-height: 1">2</div>
+            <div style="font-size: 12.5px; letter-spacing: .16em; color: rgba(231,225,195,.7); margin-top: 6px">QUARTEIRÕES</div>
+          </div>
+          <div>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 34px; line-height: 1">Cabo Branco</div>
+            <div style="font-size: 12.5px; letter-spacing: .16em; color: rgba(231,225,195,.7); margin-top: 6px">JOÃO PESSOA · PB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prova" style="background: #FAF7EC; color: #201A16; padding: clamp(60px, 7vw, 100px) 20px">
+    <div style="max-width: 1200px; margin: 0 auto">
+      <div style="max-width: 720px; margin-bottom: clamp(30px, 4vw, 48px)">
+        <div style="font-size: 13px; letter-spacing: .2em; font-weight: 500; color: #B4571B; margin-bottom: 18px">JOÃO PESSOA EM NÚMEROS PÚBLICOS</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.05; margin: 0 0 18px; text-wrap: pretty">Nenhum desses números é meu.</h2>
+        <p style="font-size: 17.5px; font-weight: 300; line-height: 1.6; color: #55503F; margin: 0; text-wrap: pretty">Dados de demanda da região, de fontes públicas. Não são promessa de retorno.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(14px, 1.6vw, 22px)">
+        <div data-reveal="" style="background: #FFFDF6; border: 1px solid #DDD6BC; border-radius: 4px; padding: clamp(24px, 2.8vw, 36px)">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 5vw, 62px); line-height: 1; color: #B4571B">+8,81%</div>
+          <div style="font-size: 17px; line-height: 1.45; margin: 14px 0 8px">Valorização de venda residencial em JP em 12 meses</div>
+          <div style="font-size: 13.5px; color: #736B59">FipeZAP, julho/2026</div>
+        </div>
+        <div data-reveal="" style="background: #FFFDF6; border: 1px solid #DDD6BC; border-radius: 4px; padding: clamp(24px, 2.8vw, 36px)">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 5vw, 62px); line-height: 1; color: #B4571B">+14,75%</div>
+          <div style="font-size: 17px; line-height: 1.45; margin: 14px 0 8px">Alta do aluguel na cidade — 4ª maior do país</div>
+          <div style="font-size: 13.5px; color: #736B59">FipeZAP locação, junho/2026</div>
+        </div>
+        <div data-reveal="" style="background: #FFFDF6; border: 1px solid #DDD6BC; border-radius: 4px; padding: clamp(24px, 2.8vw, 36px)">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 5vw, 62px); line-height: 1; color: #B4571B">2 mi</div>
+          <div style="font-size: 17px; line-height: 1.45; margin: 14px 0 8px">Passageiros no aeroporto só no 1º semestre de 2026</div>
+          <div style="font-size: 13.5px; color: #736B59">Aena Brasil</div>
+        </div>
+        <div data-reveal="" style="background: #FFFDF6; border: 1px solid #DDD6BC; border-radius: 4px; padding: clamp(24px, 2.8vw, 36px)">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 5vw, 62px); line-height: 1; color: #B4571B">96,2%</div>
+          <div style="font-size: 17px; line-height: 1.45; margin: 14px 0 8px">Dos turistas dizem que voltam à Grande João Pessoa</div>
+          <div style="font-size: 13.5px; color: #736B59">Fecomércio-PB, verão 2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #201A16; padding: clamp(56px, 6.5vw, 90px) 20px">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(28px, 3.5vw, 56px); align-items: center">
+      <div>
+        <div style="font-size: 13px; letter-spacing: .2em; font-weight: 500; color: #C96A24; margin-bottom: 18px">QUEM APRESENTA</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; margin: 0 0 16px">{{ apresentador }}</h2>
+        <p style="font-size: 17.5px; font-weight: 300; line-height: 1.6; color: rgba(245,240,222,.84); margin: 0 0 12px; text-wrap: pretty">Jason Dias (CRECI-PB 8085) e Vitor Barreto. Corretores em João Pessoa, especializados em imóvel de litoral para quem compra de fora do estado ou do exterior.</p>
+        <p style="font-size: 17.5px; font-weight: 300; line-height: 1.6; color: rgba(245,240,222,.84); margin: 0; text-wrap: pretty">Arya Living é uma incorporação da <strong style="font-weight: 500; color: #F5F0DE">Nordeste Incorporações</strong>.</p>
+      </div>
+      <figure data-reveal="" style="margin: 0; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px">
+        <img src="img/fachada-noite.jpg" alt="Fachada do Arya Living" style="width: 100%; height: 100%; object-fit: cover; display: block" />
+      </figure>
+    </div>
+  </section>
+
+  <section style="background: #B4571B; padding: clamp(56px, 7vw, 100px) 20px">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center">
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(36px, 5.4vw, 66px); line-height: 1.02; color: #FFF6E8; margin: 0 0 18px; text-wrap: pretty">Continue pesquisando. Ou veja a tabela aberta, ao vivo.</h2>
+      <p style="font-size: clamp(17px, 2vw, 21px); font-weight: 300; line-height: 1.55; color: #FFF6E8; margin: 0 0 30px">{{ liveData }}, {{ liveHora }}. Link no seu WhatsApp.</p>
+      <a href="#inscricao" style="display: inline-flex; align-items: center; background: #201A16; color: #FFF6E8; padding: 0 40px; min-height: 60px; font-size: 14.5px; letter-spacing: .12em; font-weight: 600; border-radius: 3px" style-hover="background: #14200F">QUERO MINHA VAGA</a>
+    </div>
+  </section>
+
+  <footer style="background: #14200F; color: rgba(245,240,222,.6); padding: clamp(40px, 5vw, 64px) 20px 40px">
+    <div style="max-width: 1200px; margin: 0 auto">
+      <div style="display: flex; flex-wrap: wrap; gap: 28px; justify-content: space-between; align-items: start; padding-bottom: 28px; border-bottom: 1px solid rgba(245,240,222,.14)">
+        <div style="display: flex; flex-direction: column; line-height: 1">
+          <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 36px; color: #F5F0DE">arya</span>
+          <span style="font-size: 9.5px; letter-spacing: .42em; color: #C9A97E; margin-top: 4px">LIVING</span>
+        </div>
+        <div style="font-size: 15px; font-weight: 300; line-height: 1.7">Rua Dr. Frutuoso Dantas, 457<br />Cabo Branco · João Pessoa / PB</div>
+        <div style="font-size: 15px; font-weight: 300; line-height: 1.7">Incorporação<br /><span style="color: #F5F0DE">Nordeste Incorporações</span></div>
+      </div>
+      <p style="font-size: 13px; line-height: 1.7; margin: 24px 0 0; max-width: 940px; color: rgba(245,240,222,.6)">Imagens ilustrativas (perspectiva artística), sujeitas a alterações; mobiliário e decoração não integram o contrato. Valores, condições e disponibilidade referem-se à tabela de 14/09/2026 e podem mudar sem aviso prévio, sujeitos a análise de crédito. Este material não constitui oferta de investimento nem promessa de rentabilidade, valorização ou receita de locação. Dados de mercado são de fontes públicas de terceiros (FipeZAP, Aena Brasil, Setur-JP, Fecomércio-PB) e servem como contexto regional. A condição apresentada na transmissão vale só no período e nas regras informados ao vivo. Intermediação: Jason Dias, CRECI-PB 8085. Empreendimento em fase de pré-lançamento; valores e condições sujeitos a confirmação. Solicite a documentação antes de contratar.</p>
+      <p style="font-size: 13px; margin: 16px 0 0; color: rgba(245,240,222,.6)">© 2026 Arya Living · Nordeste Incorporações</p>
+    </div>
+  </footer>
+
+  <sc-if value="{{ isAdmin }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; top: 0; right: 0; bottom: 0; width: min(100%, 400px); z-index: 100; background: #FFFDF6; color: #201A16; overflow-y: auto; box-shadow: -12px 0 40px rgba(0,0,0,.35); font-family: Jost, system-ui, sans-serif">
+      <div style="padding: 22px 22px 16px; border-bottom: 1px solid #DDD6BC; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+        <div>
+          <div style="font-size: 11.5px; letter-spacing: .2em; font-weight: 500; color: #B4571B">PAINEL DA PÁGINA</div>
+          <div style="font-size: 14px; color: #55503F; margin-top: 4px">Edite, baixe o config.json e suba ao lado do HTML.</div>
+        </div>
+        <a href="?" style="min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: #201A16; color: #FAF7EC; font-size: 20px">×</a>
+      </div>
+      <div style="padding: 8px 22px 22px; display: flex; flex-direction: column; gap: 14px">
+        <sc-for list="{{ cfgFields }}" as="f" hint-placeholder-count="6">
+          <label style="display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 11.5px; letter-spacing: .14em; font-weight: 500; color: #736B59">{{ f.label }}</span>
+            <input type="text" name="{{ f.key }}" value="{{ f.value }}" placeholder="{{ f.hint }}" onChange="{{ onCfgChange }}" style="border: 1px solid #CFC7AA; background: #FAF7EC; color: #201A16; font-family: Jost, sans-serif; font-size: 15px; padding: 12px 14px; border-radius: 3px; min-height: 46px; box-sizing: border-box" style-focus="border-color: #B4571B" />
+          </label>
+        </sc-for>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 8px; padding-top: 18px; border-top: 1px solid #DDD6BC">
+          <button type="button" onClick="{{ downloadCfg }}" style="background: #B4571B; color: #FAF7EC; border: none; font-family: Jost, sans-serif; font-size: 13.5px; letter-spacing: .12em; font-weight: 600; min-height: 52px; border-radius: 3px; cursor: pointer">BAIXAR config.json</button>
+          <button type="button" onClick="{{ publishCfg }}" style="background: #201A16; color: #FAF7EC; border: none; font-family: Jost, sans-serif; font-size: 13.5px; letter-spacing: .12em; font-weight: 600; min-height: 52px; border-radius: 3px; cursor: pointer">PUBLICAR VIA WEBHOOK ADMIN</button>
+          <button type="button" onClick="{{ resetCfg }}" style="background: transparent; color: #736B59; border: 1px solid #CFC7AA; font-family: Jost, sans-serif; font-size: 13px; letter-spacing: .1em; min-height: 46px; border-radius: 3px; cursor: pointer">DESCARTAR RASCUNHO LOCAL</button>
+          <p style="font-size: 12.5px; color: #736B59; line-height: 1.55; margin: 6px 0 0">{{ cfgStatus }}</p>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hasLightbox }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closePlanta }}" style="position: fixed; inset: 0; z-index: 90; background: rgba(20,26,18,.94); display: flex; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out">
+      <img src="{{ lightboxSrc }}" alt="{{ lightboxAlt }}" hint-src="img/planta-studio26.png" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 4px; background: #E7E1C3" />
+      <button type="button" onClick="{{ closePlanta }}" style="position: absolute; top: 16px; right: 16px; min-width: 48px; min-height: 48px; border: none; border-radius: 50%; background: #B4571B; color: #FAF7EC; font-family: Jost, sans-serif; font-size: 22px; cursor: pointer">×</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <div style="height: 84px"></div>
+    <div style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; background: rgba(20,32,15,.96); backdrop-filter: blur(10px); border-top: 1px solid rgba(245,240,222,.16); padding: 12px 16px; display: flex; align-items: center; gap: 14px">
+      <div style="flex: 1; min-width: 0; line-height: 1.25">
+        <div style="font-size: 12px; letter-spacing: .12em; color: #E8B07C; font-weight: 500">AO VIVO</div>
+        <div style="font-size: 14px; color: #F5F0DE; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ liveData }} · {{ liveHora }}</div>
+      </div>
+      <a href="#inscricao" style="background: #B4571B; color: #FAF7EC; padding: 0 22px; min-height: 52px; display: inline-flex; align-items: center; font-size: 13.5px; letter-spacing: .1em; font-weight: 600; border-radius: 3px; flex: none" style-active="background: #C96A24">GARANTIR VAGA</a>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;configUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;./config.json&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Publicação&quot;},&quot;liveData&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Quarta, 30 de setembro&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;A live (padrões — o config.json sobrescreve)&quot;},&quot;liveHora&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;20h&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;A live (padrões — o config.json sobrescreve)&quot;},&quot;plataforma&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;YouTube&quot;,&quot;Instagram&quot;,&quot;Zoom&quot;,&quot;Google Meet&quot;],&quot;default&quot;:&quot;YouTube&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;A live (padrões — o config.json sobrescreve)&quot;},&quot;vagas&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:300,&quot;min&quot;:20,&quot;max&quot;:2000,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;A live (padrões — o config.json sobrescreve)&quot;},&quot;apresentador&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Jason Dias e Vitor Barreto&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;A live (padrões — o config.json sobrescreve)&quot;},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5583999999999&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Conversão&quot;},&quot;leadWebhook&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Conversão&quot;},&quot;redirectUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Conversão&quot;},&quot;videoSrc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;metaPixelId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Rastreamento&quot;},&quot;clarityId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Rastreamento&quot;}}">
+const CFG_KEY = "arya-live-cfg";
+const CFG_FIELDS = [
+  ["liveData", "DATA DA LIVE", "Quarta, 30 de setembro"],
+  ["liveHora", "HORÁRIO (BRASÍLIA)", "20h"],
+  ["plataforma", "PLATAFORMA", "YouTube"],
+  ["vagas", "VAGAS", "300"],
+  ["apresentador", "QUEM APRESENTA", "Jason Dias e Vitor Barreto"],
+  ["whatsapp", "WHATSAPP (só números, com 55)", "5583999999999"],
+  ["leadWebhook", "WEBHOOK DO LEAD (n8n)", "https://seu-n8n.com/webhook/arya-live"],
+  ["redirectUrl", "PÁGINA DE OBRIGADO (opcional — o n8n também pode devolver 'redirect')", "https://seusite.com/obrigado"],
+  ["sentMsg", "MENSAGEM DE SUCESSO", "Inscrição confirmada. Você já recebeu a confirmação no seu WhatsApp."],
+  ["errMsg", "MENSAGEM DE NÚMERO INVÁLIDO", "Não encontramos um WhatsApp com esse número. Confira o DDD e tente de novo."],
+  ["condTitulo", "CONDIÇÃO EXCLUSIVA — TÍTULO", "A condição exclusiva"],
+  ["condTexto", "CONDIÇÃO EXCLUSIVA — TEXTO", "Negociada com a incorporadora só para quem está ao vivo. Quem assiste a gravação não tem acesso. Não se repete depois."],
+  ["videoSrc", "URL DO VÍDEO DO HERO (MP4)", "https://.../drone.mp4"],
+  ["metaPixelId", "META PIXEL ID", ""],
+  ["clarityId", "MICROSOFT CLARITY ID", ""],
+  ["adminWebhook", "WEBHOOK ADMIN (salva o config.json)", "https://seu-n8n.com/webhook/arya-config"]
+];
+const DEFAULTS = Object.fromEntries(CFG_FIELDS.map(([k, , d]) => [k, k === "leadWebhook" || k === "redirectUrl" || k === "videoSrc" || k === "adminWebhook" || k === "metaPixelId" || k === "clarityId" ? "" : d]));
+
+class Component extends DCLogic {
+  state = { isMobile: false, lightbox: null, cfg: {}, sent: false, sending: false, isAdmin: false, cfgStatus: "", formError: "" };
+
+  componentDidMount() {
+    try { this.setState({ isAdmin: new URLSearchParams(window.location.search).get("admin") === "1" }); } catch (e) {}
+    this._onMq = () => {
+      const m = window.innerWidth > 0 ? window.innerWidth <= 720 : false;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m });
+    };
+    this._onMq();
+    window.addEventListener("resize", this._onMq);
+    requestAnimationFrame(() => { this._onMq(); setTimeout(this._onMq, 300); });
+    this.installScrollTracking();
+    this.installReveal();
+    this.loadConfig();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._onMq);
+    if (this._onScroll) window.removeEventListener("scroll", this._onScroll);
+    if (this._io) this._io.disconnect();
+    if (this._rio) this._rio.disconnect();
+    if (this._revealCheck) { window.removeEventListener("scroll", this._revealCheck); window.removeEventListener("resize", this._revealCheck); }
+    if (this._revealTimer) clearTimeout(this._revealTimer);
+  }
+
+  cfg(key) {
+    const c = this.state.cfg || {};
+    const v = c[key] !== undefined && c[key] !== "" ? c[key] : (this.props[key] !== undefined && this.props[key] !== "" ? this.props[key] : DEFAULTS[key]);
+    return v === undefined || v === null ? "" : String(v);
+  }
+
+  async loadConfig() {
+    let remote = {};
+    try {
+      const r = await fetch(this.props.configUrl || "./config.json", { cache: "no-store" });
+      if (r.ok) remote = await r.json();
+    } catch (e) {}
+    let local = {};
+    try { local = JSON.parse(localStorage.getItem(CFG_KEY) || "{}"); } catch (e) {}
+    this.setState({ cfg: Object.assign({}, remote, local) }, () => {
+      this._onMq();
+      this.installPixel();
+      this.installClarity();
+    });
+  }
+
+  onCfgChange = (e) => {
+    const { name, value } = e.target;
+    const cfg = Object.assign({}, this.state.cfg, { [name]: value });
+    this.setState({ cfg, cfgStatus: "Rascunho salvo só neste navegador. Baixe ou publique para valer no site." });
+    try { localStorage.setItem(CFG_KEY, JSON.stringify(cfg)); } catch (err) {}
+  };
+
+  exportCfg() {
+    const out = {};
+    CFG_FIELDS.forEach(([k]) => { const v = this.cfg(k); if (v !== "") out[k] = v; });
+    return out;
+  }
+
+  downloadCfg = () => {
+    const blob = new Blob([JSON.stringify(this.exportCfg(), null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = "config.json"; a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    this.setState({ cfgStatus: "config.json baixado. Suba na mesma pasta do HTML e recarregue." });
+  };
+
+  publishCfg = async () => {
+    const url = this.cfg("adminWebhook");
+    if (!url) { this.setState({ cfgStatus: "Preencha o webhook admin primeiro." }); return; }
+    this.setState({ cfgStatus: "Publicando…" });
+    try {
+      const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ type: "arya-live-config", config: this.exportCfg() }) });
+      this.setState({ cfgStatus: r.ok ? "Publicado. Seu fluxo n8n deve gravar o config.json." : "Webhook respondeu " + r.status + "." });
+    } catch (e) { this.setState({ cfgStatus: "Falha ao chamar o webhook: " + e.message }); }
+  };
+
+  resetCfg = () => {
+    try { localStorage.removeItem(CFG_KEY); } catch (e) {}
+    this.setState({ cfg: {}, cfgStatus: "Rascunho descartado. Recarregue para ver o config.json publicado." }, () => this.loadConfig());
+  };
+
+  openPlanta = (e) => {
+    const img = e.currentTarget.querySelector("img");
+    if (!img) return;
+    this.setState({ lightbox: { src: img.getAttribute("src"), alt: img.getAttribute("alt") || "" } });
+    this.track("PlantaZoom", { planta: img.getAttribute("alt") || "" });
+  };
+  closePlanta = () => this.setState({ lightbox: null });
+  clearFormError = () => { if (this.state.formError) this.setState({ formError: "" }); };
+
+  videoRef = (el) => {
+    if (!el) return;
+    const src = this.cfg("videoSrc").trim();
+    if (!src) return;
+    if (el.getAttribute("src") !== src) el.setAttribute("src", src);
+    el.muted = true; el.setAttribute("muted", "");
+    const p = el.play(); if (p && p.catch) p.catch(() => {});
+  };
+
+  installReveal() {
+    const els = Array.from(document.querySelectorAll("[data-reveal]"));
+    if (!els.length) return;
+    const pending = new Set(els);
+    els.forEach((el) => { el.style.opacity = "0"; el.style.transform = "translateY(22px)"; el.style.transition = "opacity .7s ease, transform .7s ease"; });
+    const show = (el) => {
+      if (!pending.has(el)) return;
+      pending.delete(el);
+      el.style.opacity = "1"; el.style.transform = "none";
+      if (this._rio) this._rio.unobserve(el);
+    };
+    // caminho principal: IntersectionObserver
+    if ("IntersectionObserver" in window) {
+      this._rio = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) show(e.target); });
+      }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+      els.forEach((el) => this._rio.observe(el));
+    }
+    // fallback independente do IO: posição no viewport em scroll/resize + rAF inicial
+    this._revealCheck = () => {
+      if (!pending.size) return;
+      const limit = window.innerHeight * 0.92;
+      Array.from(pending).forEach((el) => { if (el.getBoundingClientRect().top < limit) show(el); });
+    };
+    window.addEventListener("scroll", this._revealCheck, { passive: true });
+    window.addEventListener("resize", this._revealCheck);
+    requestAnimationFrame(this._revealCheck);
+    // segurança: nunca deixar conteúdo oculto
+    this._revealTimer = setTimeout(() => Array.from(pending).forEach(show), 3000);
+  }
+
+  track(name, params) {
+    try { if (window.fbq) window.fbq("trackCustom", name, params || {}); } catch (e) {}
+    try { if (window.clarity) window.clarity("event", name); } catch (e) {}
+  }
+
+  installPixel() {
+    const id = this.cfg("metaPixelId").trim();
+    if (!id || window.fbq) return;
+    const n = (window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); });
+    if (!window._fbq) window._fbq = n;
+    n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
+    const s = document.createElement("script"); s.async = true; s.src = "https://connect.facebook.net/en_US/fbevents.js"; document.head.appendChild(s);
+    window.fbq("init", id); window.fbq("track", "PageView");
+  }
+
+  installClarity() {
+    const id = this.cfg("clarityId").trim();
+    if (!id || window.clarity) return;
+    window.clarity = function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+    const s = document.createElement("script"); s.async = true; s.src = "https://www.clarity.ms/tag/" + id; document.head.appendChild(s);
+  }
+
+  installScrollTracking() {
+    const hit = {};
+    this._onScroll = () => {
+      const d = document.documentElement; const max = d.scrollHeight - window.innerHeight; if (max <= 0) return;
+      const pct = Math.round((window.scrollY / max) * 100);
+      [25, 50, 75, 90].forEach((m) => { if (pct >= m && !hit[m]) { hit[m] = true; this.track("ScrollDepth", { percent: m }); } });
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    const seen = {};
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting && !seen[e.target.id]) { seen[e.target.id] = true; this.track("SectionView", { section: e.target.id }); } });
+    }, { threshold: 0.4 });
+    ["apresentacao", "plantas", "estrutura", "mecanismo", "local", "prova", "inscricao"].forEach((id) => { const el = document.getElementById(id); if (el) this._io.observe(el); });
+  }
+
+  utms() {
+    const out = {};
+    try { new URLSearchParams(window.location.search).forEach((v, k) => { if (/^utm_|^fbclid$|^gclid$/.test(k)) out[k] = v; }); } catch (e) {}
+    return out;
+  }
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    if (this.state.sending) return;
+    const f = new FormData(e.target);
+    const nome = (f.get("nome") || "").toString().trim();
+    const whats = (f.get("whats") || "").toString().trim();
+    if (!nome || whats.replace(/\D/g, "").length < 10) { try { e.target.reportValidity(); } catch (err) {} return; }
+    this.setState({ formError: "" });
+    try { if (window.fbq) window.fbq("track", "Lead", { content_name: "Live Arya Living" }); } catch (err) {}
+    this.track("InscricaoLive", {});
+    const payload = Object.assign({
+      nome, whatsapp: whats, whatsapp_digits: whats.replace(/\D/g, ""),
+      origem: "lp-live-arya", empreendimento: "Arya Living", evento: this.cfg("liveData") + " " + this.cfg("liveHora"),
+      pagina: window.location.href, enviado_em: new Date().toISOString()
+    }, this.utms());
+    const hook = this.cfg("leadWebhook");
+    if (hook) {
+      this.setState({ sending: true });
+      try {
+        const r = await fetch(hook, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+        let data = {};
+        try { data = await r.json(); } catch (e2) {}
+        // contrato: { ok: true } | { ok: false, message } | { redirect }
+        if (data && data.ok === false) {
+          this.track("WhatsAppInvalido", {});
+          this.setState({ sending: false, formError: data.message || this.cfg("errMsg") });
+          return;
+        }
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        if (data && data.redirect) { window.location.href = data.redirect; return; }
+        this.setState({ sent: true, sending: false, formError: "" });
+        return;
+      } catch (err) {
+        this.setState({ sending: false });
+        this.track("WebhookFalhou", { erro: String(err && err.message) });
+      }
+    }
+    const msg = "Quero minha vaga na apresentação ao vivo do Arya Living (Cabo Branco). Nome: " + nome + " · WhatsApp: " + whats + ".";
+    const tel = this.cfg("whatsapp").replace(/\D/g, "") || "5583999999999";
+    window.open("https://wa.me/" + tel + "?text=" + encodeURIComponent(msg), "_blank");
+    this.setState({ sent: true });
+  };
+
+  renderVals() {
+    const videoSrc = this.cfg("videoSrc").trim();
+    const redirectUrl = this.cfg("redirectUrl").trim();
+    return {
+      liveData: this.cfg("liveData"), liveHora: this.cfg("liveHora"), plataforma: this.cfg("plataforma"),
+      vagasLabel: this.cfg("vagas") + " vagas", apresentador: this.cfg("apresentador"),
+      condTitulo: this.cfg("condTitulo"), condTexto: this.cfg("condTexto"),
+      videoSrc, hasVideo: !!videoSrc, noVideo: !videoSrc, videoRef: this.videoRef,
+      isMobile: this.state.isMobile,
+      hasLightbox: !!this.state.lightbox,
+      lightboxSrc: this.state.lightbox ? this.state.lightbox.src : "",
+      lightboxAlt: this.state.lightbox ? this.state.lightbox.alt : "",
+      openPlanta: this.openPlanta, closePlanta: this.closePlanta, clearFormError: this.clearFormError,
+      onSubmit: this.handleSubmit,
+      sent: this.state.sent, notSent: !this.state.sent, sending: this.state.sending,
+      btnLabel: this.state.sending ? "ENVIANDO…" : "QUERO MINHA VAGA",
+      sentMsg: this.cfg("sentMsg"), hasRedirect: !!redirectUrl, redirectUrl,
+      formError: this.state.formError, hasFormError: !!this.state.formError,
+      isAdmin: this.state.isAdmin, cfgStatus: this.state.cfgStatus,
+      onCfgChange: this.onCfgChange, downloadCfg: this.downloadCfg, publishCfg: this.publishCfg, resetCfg: this.resetCfg,
+      cfgFields: CFG_FIELDS.map(([key, label, hint]) => ({ key, label, hint, value: (this.state.cfg || {})[key] !== undefined ? String(this.state.cfg[key]) : this.cfg(key) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

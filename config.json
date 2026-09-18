@@ -1,0 +1,18 @@
+{
+  "liveData": "Quarta, 30 de setembro",
+  "liveHora": "20h",
+  "plataforma": "YouTube",
+  "vagas": "300",
+  "apresentador": "Jason Dias e Vitor Barreto",
+  "whatsapp": "5583999999999",
+  "leadWebhook": "",
+  "redirectUrl": "",
+  "sentMsg": "Inscrição confirmada. Você já recebeu a confirmação no seu WhatsApp.",
+  "videoSrc": "",
+  "metaPixelId": "",
+  "clarityId": "",
+  "adminWebhook": "",
+  "errMsg": "Não encontramos um WhatsApp com esse número. Confira o DDD e tente de novo.",
+  "condTitulo": "A condição exclusiva",
+  "condTexto": "Negociada com a incorporadora só para quem está ao vivo. Quem assiste a gravação não tem acesso. Não se repete depois."
+}
