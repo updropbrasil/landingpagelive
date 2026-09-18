@@ -40,26 +40,31 @@
     </div>
   </div>
 
-  <section style="position: relative; background: #14200F; overflow: hidden">
-    <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
-      <video ref="{{ videoRef }}" data-src="{{ videoSrc }}" poster="img/fachada-dia.jpg" autoplay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsinline="{{ true }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55"></video>
-    </sc-if>
-    <sc-if value="{{ noVideo }}" hint-placeholder-val="{{ true }}">
-      <img src="img/fachada-dia.jpg" alt="Fachada do Arya Living em Cabo Branco" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55" />
-    </sc-if>
-    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,32,15,.55) 0%, rgba(20,32,15,.82) 55%, #14200F 100%)"></div>
-    <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: clamp(36px, 5vw, 70px) 20px clamp(48px, 6vw, 90px)">
+  <section style="position: relative; background: #14200F; overflow: hidden; min-height: 78vh; display: flex; align-items: flex-end">
+    <div style="position: absolute; inset: 0; overflow: hidden">
+      <div ref="{{ heroMediaRef }}" style="position: absolute; left: 0; right: 0; top: -12%; height: 124%; will-change: transform">
+        <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+          <video ref="{{ videoRef }}" data-src="{{ videoSrc }}" poster="img/fachada-dia.jpg" autoplay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsinline="{{ true }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .62"></video>
+        </sc-if>
+        <sc-if value="{{ noVideo }}" hint-placeholder-val="{{ true }}">
+          <img src="img/fachada-dia.jpg" alt="Fachada do Arya Living em Cabo Branco" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .62" />
+        </sc-if>
+      </div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,32,15,.35) 0%, rgba(20,32,15,.25) 40%, rgba(20,32,15,.86) 78%, #14200F 100%)"></div>
+    </div>
+    <div style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto; padding: clamp(36px, 5vw, 70px) 20px clamp(40px, 5vw, 70px)">
       <div style="display: flex; flex-direction: column; line-height: 1; margin-bottom: clamp(34px, 4.5vw, 60px)">
         <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 38px; color: #F5F0DE">arya</span>
         <span style="font-size: 10px; letter-spacing: .42em; color: #C9A97E; margin-top: 4px">LIVING · CABO BRANCO</span>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(32px, 4vw, 64px); align-items: start">
+      <div style="max-width: 760px">
         <div style="animation: arRise .7s ease both">
           <div style="font-size: 13px; letter-spacing: .18em; font-weight: 500; color: #E8B07C; margin-bottom: 22px; line-height: 1.5">VOCÊ PESQUISOU IMÓVEL NA PRAIA. E FECHOU A ABA NO PREÇO.</div>
           <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(46px, 7.5vw, 92px); line-height: .96; letter-spacing: -.02em; margin: 0 0 16px; text-wrap: pretty">Cabo Branco, na planta.</h1>
           <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(24px, 3.4vw, 36px); line-height: 1.25; color: #E8B07C; margin: 0 0 26px; text-wrap: pretty">Entrada de R$ 44.500. 48× de R$ 927. 4 anuais de R$ 11.125.</p>
-          <p style="font-size: clamp(17px, 2vw, 21px); font-weight: 300; line-height: 1.6; color: #F5F0DE; margin: 0 0 32px; max-width: 540px; text-wrap: pretty">Fluxo real de uma unidade de R$ 445 mil — 30% na obra, 70% nas chaves. Ao vivo: tabela, quem é a incorporadora e o que ela já entregou, localização, plantas e fluxo. E uma condição que <strong style="font-weight: 500">só existe durante a transmissão</strong>.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 14px 36px; padding: 22px 0; border-top: 1px solid rgba(245,240,222,.2); border-bottom: 1px solid rgba(245,240,222,.2)">
+          <p style="font-size: clamp(17px, 2vw, 21px); font-weight: 300; line-height: 1.6; color: #F5F0DE; margin: 0 0 28px; max-width: 540px; text-wrap: pretty">Apresentação ao vivo com tabela aberta — e uma condição que <strong style="font-weight: 500">só existe durante a transmissão</strong>.</p>
+          <a href="#inscricao" style="display: inline-flex; align-items: center; background: #B4571B; color: #FAF7EC; padding: 0 30px; min-height: 58px; font-size: 14.5px; letter-spacing: .12em; font-weight: 600; border-radius: 3px; margin-bottom: 30px" style-hover="background: #C96A24">QUERO MINHA VAGA</a>
+          <div style="display: flex; flex-wrap: wrap; gap: 14px 36px; padding: 22px 0 0; border-top: 1px solid rgba(245,240,222,.2)">
             <div>
               <div style="font-family: 'Cormorant Garamond', serif; font-size: 28px; line-height: 1">{{ liveData }}</div>
               <div style="font-size: 12px; letter-spacing: .16em; color: rgba(231,225,195,.7); margin-top: 6px">DATA</div>
@@ -74,8 +79,17 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div id="inscricao" style="background: #FFFDF6; color: #201A16; padding: clamp(26px, 3vw, 40px); border-radius: 4px; animation: arRise .8s .1s ease both">
+  <section style="background: #14200F; padding: 0 20px clamp(56px, 7vw, 90px)">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: center">
+      <div data-reveal="">
+        <div style="font-size: 13px; letter-spacing: .18em; font-weight: 500; color: #E8B07C; margin-bottom: 18px">O QUE ABRIMOS AO VIVO</div>
+        <p style="font-size: clamp(18px, 2.1vw, 23px); font-weight: 300; line-height: 1.55; color: #F5F0DE; margin: 0; text-wrap: pretty">Fluxo real de uma unidade de R$ 445 mil — 30% na obra, 70% nas chaves. Tabela, quem é a incorporadora e o que ela já entregou, localização, plantas e fluxo de pagamento.</p>
+      </div>
+        <div id="inscricao" style="background: #FFFDF6; color: #201A16; padding: clamp(26px, 3vw, 40px); border-radius: 4px; scroll-margin-top: 80px">
           <div style="font-size: 12.5px; letter-spacing: .2em; font-weight: 500; color: #B4571B; margin-bottom: 10px">GARANTA SUA VAGA</div>
           <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(28px, 3vw, 36px); line-height: 1.1; margin: 0 0 10px">Link, lembrete e tabela no seu WhatsApp.</h2>
           <p style="font-size: 16px; font-weight: 300; line-height: 1.55; color: #55503F; margin: 0 0 24px">Dois campos. A confirmação chega no seu WhatsApp.</p>
@@ -106,7 +120,6 @@
           </div>
           </sc-if>
         </div>
-      </div>
     </div>
   </section>
 
@@ -355,7 +368,7 @@
 
   <sc-if value="{{ hasLightbox }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ closePlanta }}" style="position: fixed; inset: 0; z-index: 90; background: rgba(20,26,18,.94); display: flex; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out">
-      <img src="{{ lightboxSrc }}" alt="{{ lightboxAlt }}" hint-src="img/planta-studio26.png" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 4px; background: #E7E1C3" />
+      <img ref="{{ lightboxImgRef }}" alt="{{ lightboxAlt }}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 4px; background: #E7E1C3" />
       <button type="button" onClick="{{ closePlanta }}" style="position: absolute; top: 16px; right: 16px; min-width: 48px; min-height: 48px; border: none; border-radius: 50%; background: #B4571B; color: #FAF7EC; font-family: Jost, sans-serif; font-size: 22px; cursor: pointer">×</button>
     </div>
   </sc-if>
@@ -409,6 +422,7 @@ class Component extends DCLogic {
     requestAnimationFrame(() => { this._onMq(); setTimeout(this._onMq, 300); });
     this.installScrollTracking();
     this.installReveal();
+    this.installParallax();
     this.loadConfig();
   }
 
@@ -419,6 +433,7 @@ class Component extends DCLogic {
     if (this._rio) this._rio.disconnect();
     if (this._revealCheck) { window.removeEventListener("scroll", this._revealCheck); window.removeEventListener("resize", this._revealCheck); }
     if (this._revealTimer) clearTimeout(this._revealTimer);
+    if (this._onParallax) window.removeEventListener("scroll", this._onParallax);
   }
 
   cfg(key) {
@@ -485,7 +500,26 @@ class Component extends DCLogic {
     this.track("PlantaZoom", { planta: img.getAttribute("alt") || "" });
   };
   closePlanta = () => this.setState({ lightbox: null });
+  lightboxImgRef = (el) => { if (el && this.state.lightbox && el.getAttribute("src") !== this.state.lightbox.src) el.setAttribute("src", this.state.lightbox.src); };
   clearFormError = () => { if (this.state.formError) this.setState({ formError: "" }); };
+
+  heroMediaRef = (el) => { this._heroMedia = el; };
+
+  installParallax() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    this._onParallax = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const el = this._heroMedia; if (!el) return;
+        const y = Math.min(window.scrollY, window.innerHeight * 1.2);
+        el.style.transform = "translate3d(0," + (y * 0.35) + "px,0)";
+      });
+    };
+    window.addEventListener("scroll", this._onParallax, { passive: true });
+    this._onParallax();
+  }
 
   videoRef = (el) => {
     if (!el) return;
@@ -620,12 +654,12 @@ class Component extends DCLogic {
       liveData: this.cfg("liveData"), liveHora: this.cfg("liveHora"), plataforma: this.cfg("plataforma"),
       vagasLabel: this.cfg("vagas") + " vagas", apresentador: this.cfg("apresentador"),
       condTitulo: this.cfg("condTitulo"), condTexto: this.cfg("condTexto"),
-      videoSrc, hasVideo: !!videoSrc, noVideo: !videoSrc, videoRef: this.videoRef,
+      videoSrc, hasVideo: !!videoSrc, noVideo: !videoSrc, videoRef: this.videoRef, heroMediaRef: this.heroMediaRef,
       isMobile: this.state.isMobile,
       hasLightbox: !!this.state.lightbox,
-      lightboxSrc: this.state.lightbox ? this.state.lightbox.src : "",
+      lightboxSrc: this.state.lightbox ? this.state.lightbox.src : "img/planta-studio26.jpg",
       lightboxAlt: this.state.lightbox ? this.state.lightbox.alt : "",
-      openPlanta: this.openPlanta, closePlanta: this.closePlanta, clearFormError: this.clearFormError,
+      openPlanta: this.openPlanta, closePlanta: this.closePlanta, clearFormError: this.clearFormError, lightboxImgRef: this.lightboxImgRef,
       onSubmit: this.handleSubmit,
       sent: this.state.sent, notSent: !this.state.sent, sending: this.state.sending,
       btnLabel: this.state.sending ? "ENVIANDO…" : "QUERO MINHA VAGA",
