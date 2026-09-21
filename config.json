@@ -1,0 +1,15 @@
+{
+  "liveData": "Quarta, 30 de setembro",
+  "liveHora": "20h",
+  "plataforma": "YouTube",
+  "vagas": "30",
+  "apresentador": "Jason Dias e Vitor",
+  "whatsapp": "5583996353868",
+  "leadWebhook": "https://n8n.updropbrasil.com.br/webhook/lp-lead",
+  "sentMsg": "Inscrição confirmada. Você já recebeu a confirmação no seu WhatsApp.",
+  "errMsg": "Não encontramos um WhatsApp com esse número. Confira o DDD e tente de novo.",
+  "condTitulo": "A condição exclusiva",
+  "condTexto": "Negociada com a incorporadora só para quem está ao vivo. Quem assiste a gravação não tem acesso. Não se repete depois.",
+  "metaPixelId": "27750575804574884",
+  "clarityId": "yl9houcouu"
+}
