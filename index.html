@@ -30,169 +30,113 @@ fbq('init','27750575804574884');fbq('track','PageView');
 <link rel="preload" as="image" href="img/fachada-dia.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:#14200F;color:#F5F0DE;font-family:Jost,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.45;font-size:18px}
+body{margin:0;background:#14200F;color:#F5F0DE;font-family:Jost,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.4;font-size:18px}
 a{color:#E8B07C;text-decoration:none}
 a:hover{color:#F0C79B}
 ::selection{background:#B4571B;color:#FAF7EC}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-.lbl{display:inline-block;font-size:13px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;color:#E8B07C;margin-bottom:16px}
-.btn{display:flex;align-items:center;justify-content:center;width:100%;max-width:460px;min-height:64px;padding:0 28px;background:#B4571B;color:#F5F0DE;border:0;border-radius:4px;font-family:Jost,sans-serif;font-size:17px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 30px rgba(180,87,27,.35);transition:background .2s,transform .15s}
-.btn:hover{background:#C96A24;color:#F5F0DE}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+.lbl{display:block;font-size:13px;letter-spacing:.18em;font-weight:700;text-transform:uppercase;color:#E8B07C;margin-bottom:14px}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:64px;padding:0 24px;background:#B4571B;color:#FFF6E8;border:0;border-radius:6px;font-family:Jost,sans-serif;font-size:18px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;box-shadow:0 12px 32px rgba(180,87,27,.4);transition:background .2s,transform .15s}
+.btn:hover{background:#C96A24;color:#FFF6E8}
 .btn:active{transform:scale(.98)}
 .btn:disabled{opacity:.7;cursor:wait}
-.btn small{display:block;font-size:11.5px;font-weight:500;letter-spacing:.08em;opacity:.85;margin-top:2px;text-transform:none}
-.btn-in{display:flex;flex-direction:column;align-items:center;line-height:1.15}
-.js .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
 .js .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
 
-.topbar{background:#B4571B;color:#FFF6E8;text-align:center;padding:11px 14px;font-size:14px;font-weight:600;letter-spacing:.04em}
+.topbar{background:#B4571B;color:#FFF6E8;text-align:center;padding:10px 14px;font-size:14px;font-weight:700;letter-spacing:.04em}
 .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#FFF6E8;margin-right:8px;vertical-align:1px;animation:pulse 1.6s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.25}}
 
-.hero{position:relative;overflow:hidden;background:#14200F}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,15,.35) 0%,rgba(20,32,15,.55) 30%,rgba(20,32,15,.94) 58%,#14200F 100%)}
-.hero .wrap{position:relative;padding-top:22px;padding-bottom:44px}
-.brand{display:flex;flex-direction:column;line-height:1;margin-bottom:clamp(120px,26vh,260px)}
-.brand b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:34px}
-.brand span{font-size:10px;letter-spacing:.42em;color:#E8B07C;margin-top:4px;font-weight:500}
-.hook{font-size:clamp(20px,2.4vw,24px);line-height:1.35;color:#E8B07C;margin:0 0 14px;font-weight:500;max-width:620px}
-h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(44px,7vw,84px);line-height:.98;letter-spacing:-.015em;margin:0 0 28px;max-width:860px;text-wrap:balance}
-.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(245,240,222,.22);border:1px solid rgba(245,240,222,.22);border-radius:4px;overflow:hidden;margin:0 0 26px;max-width:880px}
-.nums div{background:rgba(20,32,15,.82);padding:18px 12px 16px;text-align:center}
-h1 .num{font-family:Jost,sans-serif;font-weight:600;font-size:.86em;letter-spacing:-.02em}
-.nums b{display:block;font-family:Jost,sans-serif;font-weight:800;font-size:clamp(21px,6.2vw,48px);line-height:1;letter-spacing:-.02em;color:#F5F0DE;white-space:nowrap}
-.nums b em{font-style:normal;font-size:.5em;font-weight:600;letter-spacing:0;vertical-align:.55em;margin-right:2px;color:#E8B07C}
-.nums div > span{display:block;font-size:12.5px;letter-spacing:.1em;font-weight:600;text-transform:uppercase;color:rgba(245,240,222,.8);margin-top:9px}
-.nums .hi{background:#B4571B}
-.nums .hi b em,.nums .hi span{color:#FFF6E8}
-.nums div > span span,.nums b span,.vs span span,.cmp span span,.field span span{display:inline;margin:0;font:inherit;letter-spacing:inherit;color:inherit;text-transform:inherit}
-.promise{font-size:clamp(19px,2.2vw,22px);font-weight:400;line-height:1.45;margin:0 0 24px;max-width:640px}
-.promise strong{font-weight:700;color:#E8B07C}
-.qual{font-size:16px;line-height:1.5;color:rgba(245,240,222,.86);margin:18px 0 0;max-width:520px;padding-left:14px;border-left:2px solid #B4571B}
-.qual strong{color:#F5F0DE;font-weight:600}
-.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.facts > span{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1px solid rgba(245,240,222,.3);border-radius:40px;font-size:15px;font-weight:600}
+.hero{position:relative;min-height:calc(100svh - 40px);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,15,.55) 0%,rgba(20,32,15,.7) 40%,rgba(20,32,15,.94) 75%,#14200F 100%)}
+.brand{position:relative;z-index:2;line-height:1;margin:0 0 26px}
+.brand b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:44px}
+.brand span{display:block;font-size:13px;letter-spacing:.26em;color:#E8B07C;margin-top:6px;font-weight:700}
+.hero .wrap{position:relative;padding-top:28px;padding-bottom:36px;width:100%}
+.kick{display:inline-block;background:#B4571B;color:#FFF6E8;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:4px;margin:0 0 16px}
+.kick span{font:inherit}
+h1{font-family:Jost,sans-serif;font-weight:700;font-size:clamp(30px,8vw,52px);line-height:1.08;letter-spacing:-.02em;margin:0 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:#E8B07C}
+.price{display:flex;align-items:baseline;gap:8px;margin:0 0 6px;line-height:.9}
+.price small{font-size:clamp(22px,5vw,30px);font-weight:700;color:#E8B07C}
+.price b{font-size:clamp(84px,26vw,150px);font-weight:800;letter-spacing:-.05em}
+.price i{font-style:normal;font-size:clamp(22px,5vw,30px);font-weight:600;color:rgba(245,240,222,.85)}
+.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:6px 0 24px}
+.terms div{background:rgba(245,240,222,.08);border:1px solid rgba(245,240,222,.22);border-radius:6px;padding:12px 6px 10px;text-align:center}
+.terms b{display:block;font-size:clamp(19px,5.4vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:#F5F0DE;white-space:nowrap}
+.terms b span{font:inherit;letter-spacing:inherit}
+.terms div>span{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#E8B07C;margin-top:5px}
+@media (max-width:380px){.terms b{font-size:17px}}
+.when{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px;font-size:15px;font-weight:600;color:rgba(245,240,222,.85)}
 
-.sec{padding:clamp(64px,9vw,110px) 0}
-.h2{font-family:Jost,sans-serif;font-weight:700;font-size:clamp(32px,5vw,54px);line-height:1.05;letter-spacing:-.015em;margin:0 0 20px;max-width:880px;text-wrap:balance}
-.lead{font-size:clamp(19px,2.1vw,22px);line-height:1.5;font-weight:300;color:rgba(245,240,222,.9);margin:0;max-width:680px}
-.lead strong{font-weight:600;color:#F5F0DE}
-.lead span span,.lead strong span{font:inherit}
+.photo{padding:56px 0 0}
+.photo-media{width:100%}
+.photo-media img{display:block;width:100%;height:auto}
+@media (max-width:720px){.photo{padding-top:36px}.photo-media{height:70svh}.photo-media img{height:100%;object-fit:cover;object-position:8% 50%}}
+@media (min-width:721px){.photo-media{max-width:960px;margin:0 auto}.photo-media img{border-radius:8px}}
+.photo h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,9vw,60px);line-height:1;margin:26px 0 10px;text-wrap:balance}
+.photo p{font-size:19px;margin:0;color:rgba(245,240,222,.88)}
 
-.scene{position:relative;min-height:92svh;display:flex;align-items:flex-end;overflow:hidden;background:#14200F}
-.scene-media{position:absolute;inset:0;overflow:hidden}
-.scene-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.14);transform-origin:50% 60%;will-change:transform}
-.scene-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,15,0) 35%,rgba(20,32,15,.55) 65%,rgba(20,32,15,.92) 100%)}
-.scene-copy{position:relative;width:100%;padding-bottom:clamp(48px,8vh,90px)}
-.scene-h{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(44px,7.4vw,92px);line-height:.98;letter-spacing:-.01em;margin:0 0 16px;max-width:900px;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.35)}
-.scene-p{font-size:clamp(19px,2.2vw,23px);font-weight:400;line-height:1.45;margin:0;max-width:560px;color:#F5F0DE;text-shadow:0 1px 12px rgba(0,0,0,.4)}
-.scene-note{font-size:12.5px;color:rgba(245,240,222,.72);margin:18px 0 0}
-.scene-sea{min-height:0;height:clamp(420px,72vw,860px)}
-.scene-fade{position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,rgba(20,32,15,0),#14200F)}
-.sea-photo{background:#14200F;padding:clamp(40px,6vw,72px) 0 0}
-.sea-photo img{display:block;width:100%;max-width:940px;height:auto;margin:0 auto;border-radius:6px}
-.sea-copy{background:#14200F;padding:clamp(28px,4vw,44px) 0 clamp(64px,9vw,110px)}
+.sec{padding:64px 0}
+.h2{font-weight:700;font-size:clamp(30px,7.5vw,46px);line-height:1.08;letter-spacing:-.015em;margin:0 0 26px;text-wrap:balance}
 
-.day{background:#F5F0DE;color:#201A16}
-.day .lbl{color:#B4571B}
-.day .h2{color:#201A16}
-.day .lead{color:#3E382C}
-.day .lead strong{color:#201A16}
-.big{font-family:Jost,sans-serif;font-weight:800;font-size:clamp(96px,22vw,220px);line-height:.85;letter-spacing:-.05em;color:#B4571B;margin:10px 0 6px}
-.big em{font-style:normal;font-size:.36em;font-weight:700;letter-spacing:-.01em;vertical-align:.95em;margin-right:4px}
-.big-cap{font-size:clamp(20px,2.6vw,26px);font-weight:600;color:#201A16;margin:0 0 30px}
-.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px;margin-top:34px;max-width:860px}
-.cmp div{border:1px solid #D3CBAE;border-radius:4px;padding:20px 20px 18px;background:#FFFDF6}
-.cmp b{display:block;font-weight:800;font-size:28px;line-height:1.1;color:#201A16}
-.cmp span{display:block;font-size:16px;color:#55503F;margin-top:6px;line-height:1.4}
-.cmp .x b{color:#8C8471;text-decoration:line-through;text-decoration-thickness:2px}
+.cd{background:#F5F0DE;color:#201A16;text-align:center}
+.cd .lbl{color:#B4571B}
+.cd-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 22px}
+.cd-grid div{background:#201A16;color:#F5F0DE;border-radius:8px;padding:16px 4px 12px}
+.cd-grid b{display:block;font-size:clamp(38px,11vw,64px);font-weight:800;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.cd-grid span{display:block;font-size:11.5px;font-weight:700;letter-spacing:.12em;color:#E8B07C;margin-top:6px}
+.seats{font-size:22px;font-weight:700;margin:0}
+.seats b{color:#B4571B;font-size:34px;font-weight:800}
+.seats-s{font-size:16px;color:#55503F;margin:6px 0 0}
+[data-live="1"] .cd-grid{opacity:.35}
 
-.vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:34px;max-width:860px}
-.vs div{border-radius:4px;padding:22px 18px}
-.vs .a{background:#201A16;border:1px solid rgba(245,240,222,.14)}
-.vs .b{background:#B4571B}
-.vs small{display:block;font-size:12.5px;letter-spacing:.14em;font-weight:600;text-transform:uppercase;opacity:.85}
-.vs b{display:block;font-weight:800;font-size:clamp(54px,11vw,96px);line-height:1;letter-spacing:-.03em;margin:10px 0 8px}
-.vs span{display:block;font-size:16px;line-height:1.4}
+.open{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.open li{display:flex;gap:14px;align-items:flex-start;background:#201A16;border:1px solid rgba(245,240,222,.1);border-radius:8px;padding:18px 18px;font-size:19px;font-weight:600;line-height:1.3}
+.open li b{flex:none;width:30px;height:30px;border-radius:50%;background:#B4571B;color:#FFF6E8;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;margin-top:-1px}
+.open li.hot{background:#B4571B;border-color:#B4571B}
+.open li.hot b{background:#FFF6E8;color:#B4571B}
 
-.list{margin-top:34px;max-width:880px;display:flex;flex-direction:column;gap:12px}
-.item{display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;padding:22px 20px;background:#201A16;border-radius:4px;border:1px solid rgba(245,240,222,.1)}
-.item .n{font-weight:800;font-size:34px;line-height:1;color:#B4571B}
-.item h3{font-size:clamp(21px,2.4vw,25px);font-weight:700;line-height:1.25;margin:0 0 8px}
-.item p{font-size:17.5px;font-weight:300;line-height:1.5;color:rgba(245,240,222,.86);margin:0}
-.item.hot{background:#B4571B;border-color:#B4571B}
-.item.hot .n{color:#FFF6E8}
-.item.hot p{color:#FFF6E8}
+.host{display:flex;gap:16px;align-items:center;background:#201A16;border-radius:8px;padding:16px}
+.host img{width:84px;height:84px;border-radius:50%;object-fit:cover;flex:none}
+.host strong{display:block;font-size:19px;font-weight:700}
+.host span{display:block;font-size:15px;color:rgba(245,240,222,.78);margin-top:3px;line-height:1.35}
 
-.stack{max-width:720px;margin-top:34px;border:1px solid rgba(245,240,222,.2);border-radius:4px;overflow:hidden}
-.stack div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 20px;border-bottom:1px solid rgba(245,240,222,.14);font-size:18px}
-.stack div span:last-child{font-weight:700;color:#E8B07C;white-space:nowrap}
-.stack .tot{background:#F5F0DE;color:#201A16;border-bottom:0;font-weight:700;font-size:20px}
-.stack .tot span:last-child{color:#B4571B;font-size:26px;font-weight:800}
-
-.scar{background:#B4571B;text-align:center}
-.scar .big{color:#FFF6E8;margin:0}
-.scar p{font-size:clamp(20px,2.4vw,26px);font-weight:600;color:#FFF6E8;margin:6px auto 0;max-width:640px;line-height:1.35}
-.scar p.s{font-size:17px;font-weight:400;margin-top:14px;opacity:.95}
-
-.host{background:#201A16}
-.host-grid{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;max-width:880px}
-.avatar{position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:#2E2620}
-.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.host h2{font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0 0 14px}
-.host p{font-size:18px;font-weight:300;line-height:1.55;color:rgba(245,240,222,.88);margin:0 0 14px}
-.host .data{font-size:15px;color:rgba(231,225,195,.78);margin:0;border-top:1px solid rgba(245,240,222,.14);padding-top:14px}
-.host .data b{color:#E8B07C;font-weight:700}
-
-.card{background:#FFFDF6;color:#201A16;border-radius:6px;padding:clamp(26px,4vw,44px);max-width:580px;margin:0 auto;scroll-margin-top:16px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
-.card .lbl{color:#B4571B;margin-bottom:10px}
-.card h2{font-weight:700;font-size:clamp(28px,3.4vw,36px);line-height:1.1;margin:0 0 10px;color:#201A16}
-.card .sub{font-size:17px;color:#55503F;margin:0 0 24px}
-.field{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-.field span{font-size:13px;letter-spacing:.12em;font-weight:700;color:#55503F}
-.field input,.field select{width:100%;min-height:58px;padding:0 16px;background:#FAF7EC;border:1.5px solid #CFC7AA;border-radius:4px;color:#201A16;font-family:Jost,sans-serif;font-size:18px;-webkit-appearance:none;appearance:none}
+.card{background:#FFFDF6;color:#201A16;border-radius:10px;padding:26px 22px;scroll-margin-top:12px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.card .lbl{color:#B4571B;margin-bottom:8px}
+.card h2{font-weight:800;font-size:clamp(28px,7vw,36px);line-height:1.08;margin:0 0 18px;color:#201A16}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.field span{font-size:13px;letter-spacing:.1em;font-weight:700;color:#55503F}
+.field span span{font:inherit;letter-spacing:inherit;color:inherit}
+.field input,.field select{width:100%;min-height:58px;padding:0 16px;background:#FAF7EC;border:1.5px solid #CFC7AA;border-radius:6px;color:#201A16;font-family:Jost,sans-serif;font-size:18px;-webkit-appearance:none;appearance:none}
 .field select{background-image:linear-gradient(45deg,transparent 50%,#55503F 50%),linear-gradient(135deg,#55503F 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
 .field input:focus,.field select:focus{outline:none;border-color:#B4571B;box-shadow:0 0 0 3px rgba(180,87,27,.18)}
-.err{display:none;margin-top:4px;background:#FBEAE0;border:1px solid #E3A77F;color:#8E3A12;border-radius:4px;padding:12px 14px;font-size:16px;line-height:1.45;font-weight:500}
+.err{display:none;margin-top:4px;background:#FBEAE0;border:1px solid #E3A77F;color:#8E3A12;border-radius:6px;padding:12px 14px;font-size:16px;line-height:1.45;font-weight:600}
 .err.show{display:block}
-.card .btn{max-width:none;margin-top:8px}
-.card .foot{font-size:15px;color:#55503F;margin:16px 0 0;text-align:center;font-weight:500}
+.card .foot{font-size:15px;color:#55503F;margin:14px 0 0;text-align:center;font-weight:600}
 .ok{display:none;text-align:center}
 .ok.show{display:block}
 .ok b{display:block;font-size:34px;font-weight:800;color:#B4571B;margin-bottom:8px}
 .ok p{font-size:19px;line-height:1.5;margin:0;color:#201A16}
 
-.close{text-align:center}
-.close .h2{margin:0 auto 18px}
-.close p{font-size:20px;margin:0 auto 28px;max-width:560px;color:rgba(245,240,222,.9)}
-.close .btn{margin:0 auto}
-
-footer{padding:40px 0 48px;color:rgba(245,240,222,.66);font-size:15px;line-height:1.7;border-top:1px solid rgba(245,240,222,.12)}
-footer .row{display:flex;flex-wrap:wrap;gap:8px 26px;padding-bottom:20px}
-footer .row b{color:#F5F0DE;font-weight:600}
-footer small{display:block;font-size:13px;color:rgba(245,240,222,.62)}
+footer{padding:36px 0 44px;color:rgba(245,240,222,.66);font-size:14px;line-height:1.65;border-top:1px solid rgba(245,240,222,.12);margin-top:64px}
+footer .row{display:flex;flex-wrap:wrap;gap:6px 20px;padding-bottom:18px}
+footer .row b{color:#F5F0DE;font-weight:700}
+footer small{display:block;font-size:12.5px;color:rgba(245,240,222,.62)}
 
 .mbar{display:none}
 @media (max-width:720px){
   body{padding-bottom:84px}
   .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;align-items:center;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(20,32,15,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid rgba(245,240,222,.16)}
-  .mbar div{flex:1;min-width:0;font-size:14px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500}
-  .mbar div b{color:#E8B07C;font-weight:700;letter-spacing:.08em}
-  .mbar .btn{width:auto;min-height:52px;padding:0 18px;font-size:14px;flex:none;box-shadow:none}
-  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .nums div{padding:16px 6px 14px}
-  .nums div > span{font-size:11px;letter-spacing:.06em}
-  .nums b{letter-spacing:-.03em}
-  .host-grid{grid-template-columns:120px minmax(0,1fr);align-items:start}
-  .item{grid-template-columns:44px minmax(0,1fr);gap:12px;padding:20px 16px}
-  .item .n{font-size:28px}
-  .vs{grid-template-columns:1fr}
+  .mbar div{flex:1;min-width:0;font-size:14px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+  .mbar div b{color:#E8B07C;font-weight:800;letter-spacing:.08em}
+  .mbar .btn{width:auto;min-height:54px;padding:0 20px;font-size:15px;flex:none;box-shadow:0 -6px 24px rgba(180,87,27,.25)}
 }
 
 #admin{position:fixed;top:0;right:0;bottom:0;width:min(100%,400px);z-index:100;background:#FFFDF6;color:#201A16;overflow-y:auto;box-shadow:-12px 0 40px rgba(0,0,0,.4);padding:20px}
@@ -201,7 +145,7 @@ footer small{display:block;font-size:13px;color:rgba(245,240,222,.62)}
 #admin label{display:block;margin-bottom:12px}
 #admin label span{display:block;font-size:11px;letter-spacing:.12em;font-weight:600;color:#736B59;margin-bottom:5px}
 #admin input{width:100%;min-height:44px;padding:0 12px;border:1px solid #CFC7AA;border-radius:3px;background:#FAF7EC;font-family:Jost,sans-serif;font-size:15px}
-#admin .btn{max-width:none;margin-top:8px;min-height:50px;font-size:13px;box-shadow:none}
+#admin .btn{margin-top:8px;min-height:50px;font-size:13px;box-shadow:none}
 #admin .x{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;background:#201A16;color:#FFF6E8;display:flex;align-items:center;justify-content:center;font-size:20px}
 #admin .st{font-size:13px;color:#736B59;margin-top:12px}
 </style>
@@ -214,130 +158,69 @@ footer small{display:block;font-size:13px;color:rgba(245,240,222,.62)}
   <img class="hero-bg" src="img/fachada-dia.webp" alt="Fachada do Arya Living em Cabo Branco" fetchpriority="high" width="1600" height="900">
   <div class="hero-shade"></div>
   <div class="wrap">
-    <div class="brand"><b>arya</b><span>LIVING · CABO BRANCO · JOÃO PESSOA</span></div>
-    <p class="hook">Para quem já decidiu ter um imóvel na praia. E só falta encontrar o certo.</p>
-    <h1>Um flat a <span class="num">250</span> metros do mar, em Cabo Branco, na planta.</h1>
-    <div class="nums">
-      <div><b><em>R$</em><span data-cfg="entradaMil">40</span> mil</b><span>de entrada</span></div>
-      <div class="hi"><b><em>R$</em><span data-cfg="parcela">700</span></b><span>por mês</span></div>
-      <div><b><span data-cfg="intercaladaQtd">4</span>×</b><span>anuais de R$ <span data-cfg="intercaladaValor">11.125</span></span></div>
-      <div><b><span data-cfg="chavesPct">70</span>%</b><span>só nas chaves</span></div>
+    <div class="brand"><b>arya</b><span>CABO BRANCO · JOÃO PESSOA</span></div>
+    <p class="kick">Apresentação ao vivo · <span data-cfg="liveDiaCurto">Quinta</span>, <span data-cfg="liveHora">20h</span></p>
+    <h1>Flat na planta a <em>250 m</em> do mar de Cabo Branco.</h1>
+    <div class="price"><small>R$</small><b data-cfg="parcela">700</b><i>/mês</i></div>
+    <div class="terms">
+      <div><b>R$ <span data-cfg="entradaMil">40</span> mil</b><span>de entrada</span></div>
+      <div><b><span data-cfg="intercaladaQtd">4</span>× R$ <span data-cfg="intercaladaValor">11.125</span></b><span>anuais</span></div>
+      <div><b><span data-cfg="chavesPct">70</span>%</b><span>nas chaves</span></div>
     </div>
-    <p class="promise"><span data-cfg="liveDiaCurto">Quinta</span>, <span data-cfg="liveHora">20h</span>, ao vivo: a tabela inteira, unidade por unidade, e uma condição que <strong>só existe durante a transmissão</strong>.</p>
-    <a class="btn" href="#inscricao"><span class="btn-in">Quero minha vaga<small>Gratuito · leva 20 segundos</small></span></a>
-    <p class="qual">É para quem <strong>tem os R$ <span data-cfg="entradaMil">40</span> mil da entrada</strong> e quer decidir com a tabela na mão.</p>
-    <div class="facts">
-      <span data-cfg="liveData">Quinta-feira, 24 de setembro</span>
-      <span><span data-cfg="liveHora">20h</span>&nbsp;(Brasília)</span>
-      <span data-cfg="plataforma">Google Meet</span>
-    </div>
+    <a class="btn" href="#inscricao">Quero minha vaga na live</a>
+    <div class="when"><span data-cfg="liveData">Quinta-feira, 24 de setembro</span> · <span data-cfg="liveHora">20h</span> · <span data-cfg="plataforma">Google Meet</span></div>
   </div>
 </section>
 
-<section class="sea-photo" aria-label="Cabo Branco">
-  <div class="wrap"><img src="img/cabo-branco.webp" alt="Vista aérea da orla de Cabo Branco, João Pessoa" loading="lazy" width="1400" height="788"></div>
-</section>
-<section class="sea-copy">
+<section class="photo">
+  <div class="photo-media rv"><img src="img/cabo-branco.webp" alt="Vista aérea da orla de Cabo Branco, João Pessoa" loading="lazy" width="1400" height="788"></div>
   <div class="wrap rv">
-    <span class="lbl">Sábado, 7h da manhã</span>
-    <h2 class="scene-h">Dois quarteirões.<br>E o pé está na areia.</h2>
-    <p class="scene-p">Você desce sem pressa. O café é na orla, o fim de tarde também. E quando volta, a chave é sua.</p>
+    <h2>Dois quarteirões. E o pé está na areia.</h2>
+    <p>O endereço que você procurava — pelo preço que você não achou.</p>
   </div>
 </section>
 
-
-
-
-<section class="sec day">
-  <div class="wrap">
-    <div class="rv">
-      <span class="lbl">Como cabe</span>
-      <h2 class="h2">Você não paga o imóvel de uma vez. Paga o tempo da obra.</h2>
-      <div class="big">48</div>
-      <p class="big-cap">meses de parcelas antes das chaves.</p>
-      <p class="lead">Entrada, mensais de R$ <span data-cfg="parcela">700</span>, <span data-cfg="intercaladaQtd">4</span> anuais de R$ <span data-cfg="intercaladaValor">11.125</span> e <strong><span data-cfg="chavesPct">70</span>% só quando a chave estiver na sua mão</strong>. Correção e reajustes seguem o contrato — ao vivo a gente mostra o fluxo completo, sem letra miúda.</p>
+<section class="sec cd" id="cdBox" style="margin-top:64px">
+  <div class="wrap rv">
+    <span class="lbl">A live começa em</span>
+    <div class="cd-grid">
+      <div><b id="cdD">00</b><span>DIAS</span></div>
+      <div><b id="cdH">00</b><span>HORAS</span></div>
+      <div><b id="cdM">00</b><span>MIN</span></div>
+      <div><b id="cdS">00</b><span>SEG</span></div>
     </div>
-    <div class="cmp rv">
-      <div class="x"><b>Pagar à vista</b><span>Imóvel pronto na orla exige capital na mesa ou financiamento no dia seguinte.</span></div>
-      <div><b>Comprar na planta</b><span>O preço de hoje, pago ao longo da obra, com a maior parte na entrega.</span></div>
-    </div>
+    <p class="seats">Só <b data-cfg="vagas">30</b> vagas na sala.</p>
+    <p class="seats-s">A condição exclusiva é para quem estiver dentro. Não tem replay.</p>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <div class="rv">
-      <span class="lbl">Por que não beira-mar</span>
-      <h2 class="h2">Beira-mar custa o dobro. A areia é a mesma.</h2>
-      <p class="lead">São <strong>250 metros</strong>. Dois quarteirões a pé. É essa distância que faz a parcela caber — e é ela que a maioria paga caro para não andar.</p>
-    </div>
-    <div class="vs rv">
-      <div class="a"><small>Beira-mar</small><b>2×</b><span>o preço, pela mesma praia.</span></div>
-      <div class="b"><small>Arya · Cabo Branco</small><b>250 m</b><span>até a areia. Parcela de R$ <span data-cfg="parcela">700</span>.</span></div>
-    </div>
+    <h2 class="h2 rv">Na live você vê:</h2>
+    <ul class="open rv">
+      <li><b>1</b>O preço de cada unidade que ainda existe</li>
+      <li><b>2</b>Quem constrói e o que já entregou</li>
+      <li><b>3</b>O seu fluxo de pagamento, simulado na hora</li>
+      <li class="hot"><b>4</b><span data-cfg="condTitulo">A condição que só vale durante a transmissão.</span></li>
+    </ul>
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="rv">
-      <span class="lbl">O que abre ao vivo</span>
-      <h2 class="h2">Quarenta minutos que decidem se Cabo Branco vira endereço — ou continua foto de viagem.</h2>
-    </div>
-    <div class="list">
-      <div class="item rv"><div class="n">01</div><div><h3>Quanto custa cada unidade que ainda existe.</h3><p>Entrada, parcela e anuais, uma por uma. Sem “consulte valores”. Você sai sabendo se cabe no seu bolso — ou não.</p></div></div>
-      <div class="item rv"><div class="n">02</div><div><h3>Quem constrói, e o que já entregou.</h3><p>A Nordeste Incorporações e as obras dela na região. Você conhece quem assina antes de assinar qualquer coisa.</p></div></div>
-      <div class="item rv"><div class="n">03</div><div><h3>Por que 250 metros do mar custa isso, e beira-mar custa o dobro.</h3><p>E o que essa diferença faz com a sua parcela.</p></div></div>
-      <div class="item hot rv"><div class="n">04</div><div><h3 data-cfg="condTitulo">A condição que só vale durante a transmissão.</h3><p data-cfg="condTexto">Negociada com a incorporadora só para quem está online. Quem assiste a gravação não tem acesso. Não se repete depois.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="rv">
-      <span class="lbl">O que você leva por 40 minutos</span>
-      <h2 class="h2">Tudo o que você só veria numa visita ao stand.</h2>
-    </div>
-    <div class="stack rv">
-      <div><span>A tabela completa, unidade por unidade</span><span>Ao vivo</span></div>
-      <div><span>Seu fluxo de pagamento simulado</span><span>Ao vivo</span></div>
-      <div><span>Quem constrói e o que já entregou</span><span>Ao vivo</span></div>
-      <div><span>A condição exclusiva da transmissão</span><span>Só ao vivo</span></div>
-      <div class="tot"><span>Para você participar</span><span>R$ 0</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec scar">
+<section style="padding-bottom:28px">
   <div class="wrap rv">
-    <div class="big"><span data-cfg="vagas">30</span></div>
-    <p>vagas na sala. Quando fecham, fecham.</p>
-    <p class="s">A condição exclusiva é para quem está dentro. Não tem replay com ela.</p>
-  </div>
-</section>
-
-<section class="sec host">
-  <div class="wrap">
-    <div class="host-grid rv">
-      <div class="avatar"><img src="img/jason.webp" alt="Jason Dias" loading="lazy" width="440" height="550"></div>
-      <div>
-        <span class="lbl" style="color:#C96A24">Quem apresenta</span>
-        <h2>Jason Dias, CRECI-PB 8085.</h2>
-        <p>Corretor em João Pessoa, especializado em imóvel de litoral para quem compra de fora do estado ou do exterior. Arya Living é uma incorporação da Nordeste Incorporações.</p>
-        <p class="data">João Pessoa: <b>+8,81%</b> de valorização residencial em 12 meses (FipeZAP, jul/2026). Dado público, não é promessa de retorno.</p>
-      </div>
+    <div class="host">
+      <img src="img/jason.webp" alt="Jason Dias" loading="lazy" width="720" height="900">
+      <div><strong>Com Jason Dias</strong><span>CRECI-PB 8085 · Especialista em imóvel de litoral em João Pessoa</span></div>
     </div>
   </div>
 </section>
 
-<section class="sec">
+<section style="padding:0 0 8px">
   <div class="wrap">
     <div class="card" id="inscricao">
       <div id="formBox">
-        <div class="lbl">Garanta sua vaga</div>
-        <h2>Link, lembrete e tabela no seu WhatsApp.</h2>
-        <p class="sub">Três campos. A confirmação chega no seu WhatsApp em segundos.</p>
+        <span class="lbl">Gratuito · 20 segundos</span>
+        <h2>Garanta sua vaga.</h2>
         <form id="leadForm" novalidate>
           <label class="field"><span>SEU NOME</span><input type="text" name="nome" autocomplete="name" required></label>
           <label class="field"><span>WHATSAPP COM DDD</span><input type="tel" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(83) 9 0000-0000" required>
@@ -351,21 +234,13 @@ footer small{display:block;font-size:13px;color:rgba(245,240,222,.62)}
             </select></label>
           <button class="btn" type="submit" id="sendBtn">Quero minha vaga</button>
         </form>
-        <p class="foot"><span data-cfg="vagas">30</span> vagas · Gratuito · A condição exclusiva é anunciada só ao vivo.</p>
+        <p class="foot">Link e lembrete chegam no seu WhatsApp.</p>
       </div>
       <div class="ok" id="okBox">
         <b>Vaga garantida.</b>
         <p data-cfg="sentMsg">Inscrição confirmada. Você já recebeu a confirmação no seu WhatsApp.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="sec close" style="padding-top:0">
-  <div class="wrap rv">
-    <h2 class="h2">Continue pesquisando. Ou veja a tabela aberta, ao vivo.</h2>
-    <p><span data-cfg="liveData">Quinta-feira, 24 de setembro</span>, <span data-cfg="liveHora">20h</span>. Link no seu WhatsApp.</p>
-    <a class="btn" href="#inscricao">Quero minha vaga</a>
   </div>
 </section>
 
@@ -377,13 +252,13 @@ footer small{display:block;font-size:13px;color:rgba(245,240,222,.62)}
       <span>Incorporação: Nordeste Incorporações</span>
       <span>Jason Dias Imóveis · CRECI-PB 8085</span>
     </div>
-    <small>Imagens de caráter ilustrativo (perspectiva artística), sujeitas a alterações; mobiliário e decoração não integram o contrato. Valores, condições de pagamento e disponibilidade de unidades referem-se à tabela de 14/09/2026 e podem ser alterados sem aviso prévio, sujeitos a análise de crédito, disponibilidade e correção monetária e reajustes previstos em contrato. Parcelas, intercaladas e saldo de chaves são corrigidos conforme índice contratual; os valores exibidos são de referência e não representam o custo final. Empreendimento em fase de pré-lançamento; valores e condições sujeitos a confirmação. Este material não constitui oferta de investimento nem promessa, projeção ou garantia de rentabilidade, valorização ou receita de locação. Dados de mercado citados são de fontes públicas de terceiros (FipeZAP) e servem apenas como contexto regional. A condição apresentada durante a transmissão é válida exclusivamente no período e nas regras informados ao vivo. Intermediação: Jason Dias, CRECI-PB 8085. Solicite a documentação completa antes de contratar.</small>
+    <small>Imagens de caráter ilustrativo (perspectiva artística), sujeitas a alterações; mobiliário e decoração não integram o contrato. Valores, condições de pagamento e disponibilidade de unidades referem-se à tabela de 14/09/2026 e podem ser alterados sem aviso prévio, sujeitos a análise de crédito, disponibilidade e correção monetária e reajustes previstos em contrato. Parcelas, intercaladas e saldo de chaves são corrigidos conforme índice contratual; os valores exibidos são de referência e não representam o custo final. O fluxo inclui <span data-cfg="intercaladaQtd">4</span> parcelas anuais intercaladas de R$ <span data-cfg="intercaladaValor">11.125</span>. Empreendimento em fase de pré-lançamento; valores e condições sujeitos a confirmação. Este material não constitui oferta de investimento nem promessa, projeção ou garantia de rentabilidade, valorização ou receita de locação. A condição apresentada durante a transmissão é válida exclusivamente no período e nas regras informados ao vivo. Intermediação: Jason Dias, CRECI-PB 8085. Solicite a documentação completa antes de contratar.</small>
   </div>
 </footer>
 
 <div class="mbar">
-  <div><b>AO VIVO</b> · <span data-cfg="liveData">Quinta-feira, 24 de setembro</span></div>
-  <a class="btn" href="#inscricao">Garantir vaga</a>
+  <div><b>AO VIVO</b> · <span data-cfg="liveDiaCurto">Quinta</span>, <span data-cfg="liveHora">20h</span><br><span style="color:rgba(245,240,222,.7);font-size:12.5px">Só <span data-cfg="vagas">30</span> vagas · gratuito</span></div>
+  <a class="btn" href="#inscricao">Quero minha vaga</a>
 </div>
 
 <script>
@@ -394,6 +269,7 @@ footer small{display:block;font-size:13px;color:rgba(245,240,222,.62)}
     chavesPct: "70",
     intercaladaQtd: "4",
     intercaladaValor: "11.125",
+    liveISO: "2026-09-24T20:00:00-03:00",
     liveData: "Quinta-feira, 24 de setembro",
     liveDiaCurto: "Quinta",
     liveHora: "20h",
@@ -485,6 +361,19 @@ footer small{display:block;font-size:13px;color:rgba(245,240,222,.62)}
   }
   setTimeout(function(){ rv.forEach(show); }, 2500);
 
+  // ---- contagem regressiva ----
+  var cd = { d: document.getElementById("cdD"), h: document.getElementById("cdH"), m: document.getElementById("cdM"), s: document.getElementById("cdS") };
+  function pad(n){ return (n < 10 ? "0" : "") + n; }
+  function tick(){
+    var t = new Date(C.liveISO).getTime() - Date.now();
+    if (!isFinite(t)) return;
+    if (t <= 0) { var box = document.getElementById("cdBox"); if (box) box.setAttribute("data-live", "1"); t = 0; }
+    var s = Math.floor(t / 1000);
+    cd.d.textContent = pad(Math.floor(s / 86400)); cd.h.textContent = pad(Math.floor(s % 86400 / 3600));
+    cd.m.textContent = pad(Math.floor(s % 3600 / 60)); cd.s.textContent = pad(s % 60);
+  }
+  if (cd.d) { tick(); setInterval(tick, 1000); }
+
   // ---- config.json (depois do load, não bloqueia) ----
   var isAdmin = new URLSearchParams(location.search).get("admin") === "1";
   window.addEventListener("load", function(){
@@ -494,6 +383,7 @@ footer small{display:block;font-size:13px;color:rgba(245,240,222,.62)}
       .then(function(remote){
         for (var k in remote) if (remote[k] !== "" && remote[k] != null) C[k] = String(remote[k]);
         apply();
+        if (cd.d) tick();
         if (isAdmin) buildAdmin();
       });
   });
@@ -501,6 +391,7 @@ footer small{display:block;font-size:13px;color:rgba(245,240,222,.62)}
   // ---- painel ?admin=1 ----
   var FIELDS = [
     ["entradaMil","Entrada em mil (ex.: 44)"],["parcela","Parcela mensal (ex.: 700)"],["chavesPct","% nas chaves (ex.: 70)"],["intercaladaQtd","Qtd. de anuais (ex.: 4)"],["intercaladaValor","Valor de cada anual (ex.: 11.125)"],
+    ["liveISO","Data/hora exata p/ contagem (AAAA-MM-DDTHH:MM:00-03:00)"],
     ["liveData","Data (texto)"],["liveDiaCurto","Dia curto (ex.: Quinta)"],["liveHora","Horário"],
     ["plataforma","Plataforma"],["vagas","Vagas"],["evento","Evento (vai no webhook)"],
     ["whatsapp","WhatsApp reserva (55 + DDD + número)"],["leadWebhook","Webhook do lead (n8n)"],
@@ -521,7 +412,7 @@ footer small{display:block;font-size:13px;color:rgba(245,240,222,.62)}
     var inputs = p.querySelectorAll("input[data-k]");
     for (var i = 0; i < inputs.length; i++) {
       inputs[i].value = C[inputs[i].getAttribute("data-k")] || "";
-      inputs[i].addEventListener("input", function(e){ C[e.target.getAttribute("data-k")] = e.target.value; apply(); });
+      inputs[i].addEventListener("input", function(e){ C[e.target.getAttribute("data-k")] = e.target.value; apply(); if (cd.d) tick(); });
     }
     function cfg(){ var o = {}; FIELDS.forEach(function(f){ o[f[0]] = C[f[0]] || ""; }); return o; }
     var st = document.getElementById("aSt");
