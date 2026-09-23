@@ -1,15 +1,22 @@
 {
+  "entradaMil": "40",
+  "parcela": "700",
+  "chavesPct": "70",
+  "intercaladaQtd": "4",
+  "intercaladaValor": "11.125",
   "liveData": "Quinta-feira, 24 de setembro",
+  "liveDiaCurto": "Quinta",
   "liveHora": "20h",
-  "plataforma": "YouTube",
+  "plataforma": "Google Meet",
   "vagas": "30",
-  "apresentador": "Jason Dias e Vitor",
+  "evento": "Quinta-feira, 24 de setembro, 20h",
   "whatsapp": "5583996353868",
   "leadWebhook": "https://n8n.updropbrasil.com.br/webhook/lp-lead",
   "sentMsg": "Inscrição confirmada. Você já recebeu a confirmação no seu WhatsApp.",
   "errMsg": "Não encontramos um WhatsApp com esse número. Confira o DDD e tente de novo.",
-  "condTitulo": "A condição exclusiva",
-  "condTexto": "Negociada com a incorporadora só para quem está ao vivo. Quem assiste a gravação não tem acesso. Não se repete depois.",
+  "condTitulo": "A condição que só vale durante a transmissão.",
+  "condTexto": "Negociada com a incorporadora só para quem está online. Quem assiste a gravação não tem acesso. Não se repete depois.",
   "metaPixelId": "27750575804574884",
-  "clarityId": "yl9houcouu"
+  "clarityId": "yl9houcouu",
+  "adminWebhook": ""
 }
