@@ -85,6 +85,20 @@ h1 .num{font-family:Jost,sans-serif;font-weight:600;font-size:.86em;letter-spaci
 .lead strong{font-weight:600;color:#F5F0DE}
 .lead span span,.lead strong span{font:inherit}
 
+.scene{position:relative;min-height:92svh;display:flex;align-items:flex-end;overflow:hidden;background:#14200F}
+.scene-media{position:absolute;inset:0;overflow:hidden}
+.scene-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.14);transform-origin:50% 60%;will-change:transform}
+.scene-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,15,0) 35%,rgba(20,32,15,.55) 65%,rgba(20,32,15,.92) 100%)}
+.scene-copy{position:relative;width:100%;padding-bottom:clamp(48px,8vh,90px)}
+.scene-h{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(44px,7.4vw,92px);line-height:.98;letter-spacing:-.01em;margin:0 0 16px;max-width:900px;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.scene-p{font-size:clamp(19px,2.2vw,23px);font-weight:400;line-height:1.45;margin:0;max-width:560px;color:#F5F0DE;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.scene-note{font-size:12.5px;color:rgba(245,240,222,.72);margin:18px 0 0}
+.scene-sea{min-height:0;height:clamp(420px,72vw,860px)}
+.scene-fade{position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,rgba(20,32,15,0),#14200F)}
+.sea-photo{background:#14200F;padding:clamp(40px,6vw,72px) 0 0}
+.sea-photo img{display:block;width:100%;max-width:940px;height:auto;margin:0 auto;border-radius:6px}
+.sea-copy{background:#14200F;padding:clamp(28px,4vw,44px) 0 clamp(64px,9vw,110px)}
+
 .day{background:#F5F0DE;color:#201A16}
 .day .lbl{color:#B4571B}
 .day .h2{color:#201A16}
@@ -219,6 +233,20 @@ footer small{display:block;font-size:13px;color:rgba(245,240,222,.62)}
     </div>
   </div>
 </section>
+
+<section class="sea-photo" aria-label="Cabo Branco">
+  <div class="wrap"><img src="img/cabo-branco.webp" alt="Vista aérea da orla de Cabo Branco, João Pessoa" loading="lazy" width="1400" height="788"></div>
+</section>
+<section class="sea-copy">
+  <div class="wrap rv">
+    <span class="lbl">Sábado, 7h da manhã</span>
+    <h2 class="scene-h">Dois quarteirões.<br>E o pé está na areia.</h2>
+    <p class="scene-p">Você desce sem pressa. O café é na orla, o fim de tarde também. E quando volta, a chave é sua.</p>
+  </div>
+</section>
+
+
+
 
 <section class="sec day">
   <div class="wrap">
