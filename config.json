@@ -4,12 +4,12 @@
   "chavesPct": "70",
   "intercaladaQtd": "4",
   "intercaladaValor": "11.125",
-  "liveData": "Quinta-feira, 24 de setembro",
+  "liveData": "Quinta-feira, 1 de outubro",
   "liveDiaCurto": "Quinta",
   "liveHora": "20h",
   "plataforma": "Google Meet",
   "vagas": "30",
-  "evento": "Quinta-feira, 24 de setembro, 20h",
+  "evento": "Quinta-feira, 1 de outubro, 20h",
   "whatsapp": "5583996353868",
   "leadWebhook": "https://n8n.updropbrasil.com.br/webhook/lp-lead",
   "sentMsg": "Inscrição confirmada. Você já recebeu a confirmação no seu WhatsApp.",
@@ -19,5 +19,5 @@
   "metaPixelId": "27750575804574884",
   "clarityId": "yl9houcouu",
   "adminWebhook": "",
-  "liveISO": "2026-09-24T20:00:00-03:00"
+  "liveISO": "2026-10-01T20:00:00-03:00"
 }
