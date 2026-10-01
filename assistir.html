@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Arya Living · Apresentação ao vivo</title>
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#201A16; --cream:#FAF7EC; --sand:#E8B07C; --accent:#B4571B; --muted:#C9BFA9; }
+  * { box-sizing:border-box; }
+  html,body { height:100%; margin:0; }
+  body { background:var(--bg); color:var(--cream); font-family:Jost, system-ui, sans-serif; display:flex; align-items:center; justify-content:center; padding:24px; text-align:center; }
+  .box { max-width:420px; width:100%; }
+  .brand { font-family:"Cormorant Garamond", Georgia, serif; font-size:34px; letter-spacing:.18em; text-transform:uppercase; color:var(--sand); margin:0 0 6px; }
+  .sub { font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin:0 0 40px; }
+  .spin { width:44px; height:44px; border:3px solid rgba(232,176,124,.25); border-top-color:var(--sand); border-radius:50%; margin:0 auto 22px; animation:r 1s linear infinite; }
+  @keyframes r { to { transform:rotate(360deg); } }
+  h1 { font-size:20px; font-weight:500; margin:0 0 10px; }
+  p { font-size:15px; line-height:1.5; color:var(--muted); margin:0 0 18px; }
+  .btn { display:inline-block; background:var(--accent); color:var(--cream); text-decoration:none; font-weight:600; letter-spacing:.1em; text-transform:uppercase; font-size:13px; padding:16px 26px; border-radius:3px; border:0; cursor:pointer; min-width:220px; }
+  .btn.sec { background:transparent; border:1px solid var(--sand); color:var(--sand); margin-top:12px; }
+  #fallback { display:none; }
+</style>
+</head>
+<body>
+  <div class="box">
+    <p class="brand">Arya Living</p>
+    <p class="sub">Apresentação ao vivo</p>
+
+    <div id="loading">
+      <div class="spin"></div>
+      <h1>Abrindo a sala…</h1>
+      <p>Entre com o microfone desligado. Se aparecer "pedir para participar", a gente libera na hora.</p>
+    </div>
+
+    <div id="fallback">
+      <h1 id="fb-title">Não consegui abrir automaticamente</h1>
+      <p id="fb-text">Toque no botão para tentar de novo. Se não abrir, me chame no WhatsApp que eu te mando o link.</p>
+      <button class="btn" id="fb-retry" type="button">Tentar de novo</button><br>
+      <a class="btn sec" id="fb-wa" href="https://wa.me/5583996353868?text=Oi%2C%20n%C3%A3o%20consegui%20entrar%20na%20apresenta%C3%A7%C3%A3o%20do%20Arya" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+  </div>
+
+<script>
+(function () {
+  var API = "https://n8n.updropbrasil.com.br/webhook/live-go";
+  var q = new URLSearchParams(location.search);
+  var c = q.get("c") || "";
+  var loading = document.getElementById("loading");
+  var fallback = document.getElementById("fallback");
+  var done = false;
+
+  function showFallback(title, text) {
+    if (done) return;
+    loading.style.display = "none";
+    fallback.style.display = "block";
+    if (title) document.getElementById("fb-title").textContent = title;
+    if (text) document.getElementById("fb-text").textContent = text;
+  }
+
+  function go() {
+    loading.style.display = "block";
+    fallback.style.display = "none";
+    var url = API + "?c=" + encodeURIComponent(c) + "&p=" + encodeURIComponent(location.pathname) + "&t=" + Date.now();
+    var timer = setTimeout(function () { showFallback(); }, 8000);
+    fetch(url, { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        clearTimeout(timer);
+        if (j && j.url) { done = true; location.replace(j.url); }
+        else showFallback(j && j.titulo, j && j.texto);
+      })
+      .catch(function () { clearTimeout(timer); showFallback(); });
+  }
+
+  document.getElementById("fb-retry").addEventListener("click", go);
+  go();
+})();
+</script>
+</body>
+</html>
