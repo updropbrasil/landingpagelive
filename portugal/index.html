@@ -74,7 +74,6 @@ h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(42px,1
 .facts li i{flex:none;font-style:normal;font-size:20px;line-height:1.1}
 sup{font-size:11px;color:var(--sand);font-weight:700;line-height:0}
 .hint{display:block;text-align:center;margin-top:10px;font-size:14px;font-weight:600;color:var(--soft)}
-.legal{display:block;margin:6px auto 0;background:none;border:0;padding:4px 8px;font-family:Jost,sans-serif;font-size:12.5px;color:var(--soft);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 @media (max-height:780px){
   h1{font-size:clamp(38px,10.5vw,62px);margin-bottom:12px}
   .sub{font-size:17px;margin-bottom:14px}
@@ -175,9 +174,6 @@ footer b{color:var(--ink)}
 footer p{margin:0 0 12px}
 footer ol{margin:0;padding-left:18px}
 footer li{margin:0 0 6px;word-break:break-word}
-.fclose{display:none}
-footer.sheet{position:fixed;inset:0;z-index:20;margin:0;overflow:auto;padding:22px 0 40px;border:0;-webkit-overflow-scrolling:touch}
-footer.sheet .fclose{display:inline-block;margin:0 0 14px;background:none;border:1px solid rgba(244,239,227,.3);color:var(--ink);border-radius:6px;padding:7px 12px;font-family:Jost,sans-serif;font-size:14px;font-weight:600;cursor:pointer}
 @media (min-width:700px){ .why{grid-template-columns:1fr 1fr} }
 </style>
 </head>
@@ -202,7 +198,6 @@ footer.sheet .fclose{display:inline-block;margin:0 0 14px;background:none;border
         </ul>
         <button class="btn" type="button" id="ctaHero">Quero conhecer</button>
         <span class="hint">4 perguntas rápidas · menos de 1 minuto</span>
-        <button class="legal" type="button" id="legalBtn">Fontes e avisos legais</button>
       </div>
     </section>
 
@@ -339,9 +334,7 @@ footer.sheet .fclose{display:inline-block;margin:0 0 14px;background:none;border
 
 <footer id="rodape" hidden>
   <div class="wrap">
-    <button class="fclose" type="button" id="legalClose">← voltar</button>
     <p>CRECI-PB 8085 · João Pessoa/PB, Brasil</p>
-    <p>Empreendimento em fase de pré-lançamento, em desenvolvimento: informações, áreas, imagens e condições são preliminares e podem mudar. Comercialização sujeita ao registo da incorporação. Imagens do empreendimento de caráter ilustrativo. Este material não constitui oferta de investimento nem promessa, projeção ou garantia de rentabilidade, valorização ou receita de arrendamento. Dados passados não garantem resultados futuros. A situação do terreno e a documentação são apresentadas na reunião.</p>
     <p>Fontes:</p>
     <ol>
       <li>Correio Braziliense, 22/07/2026, com dados do Climatempo e da Marinha (Ponta do Seixas, Lei do Gabarito, Mata do Buraquinho).</li>
@@ -397,10 +390,7 @@ footer.sheet .fclose{display:inline-block;margin:0 0 14px;background:none;border
 
   document.getElementById("ctaHero").addEventListener("click", function(){ track("CliqueComecar"); go(1); });
 
-  // ---- fontes e avisos (sobreposição durante o fluxo) ----
   var rodape = document.getElementById("rodape");
-  document.getElementById("legalBtn").addEventListener("click", function(){ rodape.hidden = false; rodape.classList.add("sheet"); rodape.scrollTop = 0; });
-  document.getElementById("legalClose").addEventListener("click", function(){ rodape.classList.remove("sheet"); rodape.hidden = true; });
 
   var A = { nome: "", whatsapp: "", digits: "", objetivo: "", entrada_detalhe: "", reuniao_dia: "", reuniao_dia_label: "", reuniao_dia_curto: "", reuniao_periodo: "", reuniao_formato: "" };
   var form = document.getElementById("stepForm");
@@ -577,7 +567,6 @@ footer.sheet .fclose{display:inline-block;margin:0 0 14px;background:none;border
     document.getElementById("rFor").textContent = A.reuniao_formato;
     go(5);
     // a cidade só aparece (e a página só rola) depois da confirmação
-    rodape.classList.remove("sheet");
     document.getElementById("depois").hidden = false;
     rodape.hidden = false;
     root.classList.remove("lock");
