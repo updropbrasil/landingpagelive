@@ -685,7 +685,7 @@ footer li{margin:0 0 6px;word-break:break-word}
       nome: A.nome, whatsapp: A.whatsapp, whatsapp_digits: A.digits, entrada: entrada,
       origem: C.origem, empreendimento: C.empreendimento,
       pagina: location.href.split("#")[0], enviado_em: new Date().toISOString(),
-      objetivo: A.objetivo, entrada_detalhe: A.entrada_detalhe,
+      objetivo: A.objetivo, entrada_detalhe: A.entrada_detalhe, entrada_mql: A.entrada_detalhe === "Sim, já tenho",
       reuniao_dia: A.reuniao_dia, reuniao_dia_label: A.reuniao_dia_label,
       reuniao_semana: A.reuniao_dia_label, reuniao_periodo: A.reuniao_periodo, reuniao_formato: A.reuniao_formato,
       reuniao_inicio_iso: A.reuniao_inicio_iso, reuniao_hora_pt: A.reuniao_hora_pt, reuniao_hora_br: A.reuniao_hora_br,
@@ -705,7 +705,7 @@ footer li{margin:0 0 6px;word-break:break-word}
           else showErr(err4, "Não conseguimos registar agora. Tente de novo dentro de instantes.");
           return;
         }
-        if (x.d.ok === true || x.r.ok) { success(entrada); return; }
+        if (x.d.ok === true || x.r.ok) { success(A.entrada_detalhe); return; }
         showErr(err4, "Não conseguimos registar agora. Tente de novo dentro de instantes.");
       })
       .catch(function(){
@@ -715,7 +715,7 @@ footer li{margin:0 0 6px;word-break:break-word}
   }
 
   var fired = false;
-  function success(entrada){
+  function success(detalhe){
     var pn = A.nome.split(/\s+/)[0] || "";
     if (/\d/.test(pn)) pn = "";
     document.getElementById("okTitle").textContent = "Reunião confirmada" + (pn ? ", " + pn : "") + ".";
@@ -730,10 +730,16 @@ footer li{margin:0 0 6px;word-break:break-word}
     root.classList.remove("lock");
     revelar();
     if (fired) return; fired = true;
-    if (entrada === "Sim") {
-      try { fbq("track", "Lead", {}, { eventID: eventId }); fbq("trackCustom", "ReuniaoPortugal"); } catch(_){}
-      track("ReuniaoPortugal");
-    } else if (entrada === "Dividir") {
+    // Lead (otimização da campanha) só para quem já tem a entrada (MQL); a CAPI manda o mesmo event_id só nesse caso
+    try { fbq("trackCustom", "ReuniaoPortugal"); } catch(_){}
+    track("ReuniaoPortugal");
+    if (detalhe === "Sim, já tenho") {
+      try { fbq("track", "Lead", {}, { eventID: eventId }); } catch(_){}
+      track("LeadEntradaJaTem");
+    } else if (detalhe === "Sim, vou ter nos próximos meses") {
+      try { fbq("trackCustom", "LeadProximosMeses"); } catch(_){}
+      track("LeadProximosMeses");
+    } else if (detalhe === "Sim, preciso dividir a entrada") {
       try { fbq("trackCustom", "ReuniaoPortugalDividir"); } catch(_){}
       track("ReuniaoPortugalDividir");
     }
