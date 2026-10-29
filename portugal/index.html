@@ -730,11 +730,13 @@ footer li{margin:0 0 6px;word-break:break-word}
     root.classList.remove("lock");
     revelar();
     if (fired) return; fired = true;
-    // Lead (otimização da campanha) só para quem já tem a entrada (MQL); a CAPI manda o mesmo event_id só nesse caso
+    // Lead (otimização da campanha) para todo envio confirmado; a CAPI manda o mesmo event_id (deduplica)
+    try { fbq("track", "Lead", {}, { eventID: eventId }); } catch(_){}
     try { fbq("trackCustom", "ReuniaoPortugal"); } catch(_){}
     track("ReuniaoPortugal");
     if (detalhe === "Sim, já tenho") {
-      try { fbq("track", "Lead", {}, { eventID: eventId }); } catch(_){}
+      // só medição: quem já tem a entrada (MQL); a CAPI manda LeadEntradaJaTenho com o mesmo event_id
+      try { fbq("trackCustom", "LeadEntradaJaTenho", {}, { eventID: eventId }); } catch(_){}
       track("LeadEntradaJaTem");
     } else if (detalhe === "Sim, vou ter nos próximos meses") {
       try { fbq("trackCustom", "LeadProximosMeses"); } catch(_){}
