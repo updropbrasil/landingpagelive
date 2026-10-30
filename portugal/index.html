@@ -493,7 +493,7 @@ var AG = (function(){
              util: (dd + "/" + mm) !== "25/12" && (dd + "/" + mm) !== "01/01" }; // fim de semana aberto (30/10); só Natal e Ano Novo fechados
   }
   function periodoDe(minPt){ return minPt < 720 ? "Manhã" : minPt < 1080 ? "Tarde" : "Noite"; }
-  // Todos os horários da regra num dia: de 30 em 30 min, cada um ocupa 30 min, dentro de 09:00–22:00 em Portugal E 08:00–20:00 em Brasília (último início 21:30 PT).
+  // Todos os horários da regra num dia: de 30 em 30 min, cada um ocupa 30 min, dentro de 09:00–22:00 em Portugal E 12:00–20:00 em Brasília (janela da tarde do Vitor, 30/10) (último início 21:30 PT).
   function horariosRegra(iso){
     var a = iso.split("-").map(Number), out = [];
     for (var t = 0; t < 1440; t += PASSO) {
@@ -502,7 +502,7 @@ var AG = (function(){
       if (ymd(pi) !== iso || pi.h * 60 + pi.mi !== t) continue; // hora inexistente (mudança de hora)
       var mpi = t, mpf = mpi + DUR, mbi = bi.h * 60 + bi.mi, mbf = mbi + DUR;
       if (mpi < 540 || mpf > 1320) continue;
-      if (ymd(bi) !== ymd(bf) || mbi < 480 || mbf > 1200) continue;
+      if (ymd(bi) !== ymd(bf) || mbi < 720 || mbf > 1200) continue;
       out.push({ inicio: new Date(ini).toISOString(), pt: hm(pi), br: hm(bi), periodo: periodoDe(mpi), hora: pi.h });
     }
     return out;
