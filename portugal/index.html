@@ -13,6 +13,11 @@
 <meta name="theme-color" content="#0D2230">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- Desempenho (30/10): a foto do topo é o LCP. No celular (tela em pé) vai um recorte AVIF do mesmo enquadramento; fontes no próprio site. -->
+<link rel="preload" as="image" href="/portugal/img/jp-orla-turquesa-m.avif" type="image/avif" media="(max-aspect-ratio: 4/5)" fetchpriority="high">
+<link rel="preload" as="image" href="/portugal/img/jp-orla-turquesa.avif" type="image/avif" media="(min-aspect-ratio: 801/1000)" fetchpriority="high">
+<link rel="preload" as="font" href="/portugal/fonts/cormorant-garamond-latin.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="/portugal/fonts/jost-latin.woff2" type="font/woff2" crossorigin>
 
 <!-- Meta Pixel -->
 <script>
@@ -26,12 +31,13 @@ fbq('init','27750575804574884');fbq('track','PageView');
 try { clarity("set", "pagina", "portugal"); } catch(_){}
 </script>
 
-<link rel="preload" as="image" href="/portugal/img/jp-orla-turquesa.webp" fetchpriority="high">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
+/* Fontes no próprio site (antes: Google Fonts, que bloqueava a renderização). Mesmos arquivos variáveis do Google, licença OFL em /portugal/fonts/. */
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500 600;font-display:swap;src:url(/portugal/fonts/cormorant-garamond-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500 600;font-display:swap;src:url(/portugal/fonts/cormorant-garamond-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Jost';font-style:normal;font-weight:400 800;font-display:swap;src:url(/portugal/fonts/jost-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Jost';font-style:normal;font-weight:400 800;font-display:swap;src:url(/portugal/fonts/jost-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 :root{
   --bg:#0D2230;--bg2:#12303F;--ink:#F4EFE3;--muted:rgba(244,239,227,.78);--soft:rgba(244,239,227,.6);
   --sand:#F2C38B;--accent:#D9662B;--accent2:#E8793A;--card:#FFFCF5;--cink:#1B2229;--cmuted:#58606A;--line:#D6CFBE;--field:#F7F3E8;
@@ -195,7 +201,12 @@ footer li{margin:0 0 6px;word-break:break-word}
 <div class="stage" id="stage">
   <div class="topbar">Pré-lançamento · João Pessoa, Brasil</div>
   <div class="area">
-    <img class="bg" src="/portugal/img/jp-orla-turquesa.webp" alt="" fetchpriority="high" width="1224" height="689">
+    <picture>
+      <source type="image/avif" media="(max-aspect-ratio: 4/5)" srcset="/portugal/img/jp-orla-turquesa-m.avif" width="760" height="689">
+      <source type="image/webp" media="(max-aspect-ratio: 4/5)" srcset="/portugal/img/jp-orla-turquesa-m.webp" width="760" height="689">
+      <source type="image/avif" srcset="/portugal/img/jp-orla-turquesa.avif">
+      <img class="bg" src="/portugal/img/jp-orla-turquesa.webp" alt="" fetchpriority="high" width="1224" height="689">
+    </picture>
     <div class="shade"></div>
     <div class="shade2"></div>
 
@@ -218,7 +229,7 @@ footer li{margin:0 0 6px;word-break:break-word}
     <section class="screen cardscr" data-s="1" aria-label="Passo 1 de 4">
       <div class="card">
         <div class="prog"><button class="back" type="button">← voltar</button><i><b style="width:25%"></b></i><span>PASSO 1 DE 4</span></div>
-        <div class="scene"><img src="/portugal/img/jp-orla-cabo-branco.webp" alt="Orla de Tambaú e Cabo Branco vista do alto, com prédios baixos junto ao mar" width="1200" height="675" style="object-position:50% 60%"><p>Tambaú e Cabo Branco: mar morno e prédios baixos junto à praia.</p></div>
+        <div class="scene"><img data-src="/portugal/img/jp-orla-cabo-branco.webp" alt="Orla de Tambaú e Cabo Branco vista do alto, com prédios baixos junto ao mar" width="1200" height="675" style="object-position:50% 60%"><p>Tambaú e Cabo Branco: mar morno e prédios baixos junto à praia.</p></div>
         <div class="body">
           <span class="lbl">Vamos começar</span>
           <h2>Como se chama e qual é o seu WhatsApp?</h2>
@@ -251,7 +262,7 @@ footer li{margin:0 0 6px;word-break:break-word}
     <section class="screen cardscr" data-s="2" aria-label="Passo 2 de 4">
       <div class="card">
         <div class="prog"><button class="back" type="button">← voltar</button><i><b style="width:50%"></b></i><span>PASSO 2 DE 4</span></div>
-        <div class="scene"><img src="/portugal/img/jp-piscinas-naturais.webp" alt="Piscinas naturais de águas claras em João Pessoa" width="1200" height="800" loading="lazy" style="object-position:50% 70%"><p>Na maré baixa, o mar abre piscinas naturais a poucos minutos da orla.</p></div>
+        <div class="scene"><img data-src="/portugal/img/jp-piscinas-naturais.webp" alt="Piscinas naturais de águas claras em João Pessoa" width="1200" height="800" style="object-position:50% 70%"><p>Na maré baixa, o mar abre piscinas naturais a poucos minutos da orla.</p></div>
         <div class="body">
           <h2>O seu imóvel em João Pessoa seria para…</h2>
           <div class="opts" data-key="objetivo">
@@ -267,7 +278,7 @@ footer li{margin:0 0 6px;word-break:break-word}
     <section class="screen cardscr" data-s="3" aria-label="Passo 3 de 4">
       <div class="card">
         <div class="prog"><button class="back" type="button">← voltar</button><i><b style="width:75%"></b></i><span>PASSO 3 DE 4</span></div>
-        <div class="scene"><img src="/portugal/img/lp-aerea-170m.webp" alt="Vista aérea do bairro do Bessa, com a localização do Live Park a 170 metros da praia (imagem ilustrativa, em desenvolvimento)" width="1200" height="675" loading="lazy" style="object-position:42% 35%"><span class="tagdev">Em desenvolvimento</span><p>No Bessa, a 170 m da praia. É aqui que nasce o Live Park.</p></div>
+        <div class="scene"><img data-src="/portugal/img/lp-aerea-170m.webp" alt="Vista aérea do bairro do Bessa, com a localização do Live Park a 170 metros da praia (imagem ilustrativa, em desenvolvimento)" width="1200" height="675" style="object-position:42% 35%"><span class="tagdev">Em desenvolvimento</span><p>No Bessa, a 170 m da praia. É aqui que nasce o Live Park.</p></div>
         <div class="body">
           <p class="lead">Studios e T1 com rooftop e piscina para o fim de tarde, a poucos passos da areia e dos bares à beira-mar.</p>
           <p class="entr">Entrada a partir de <b>7 mil euros</b> (cerca de 10%)</p>
@@ -285,7 +296,7 @@ footer li{margin:0 0 6px;word-break:break-word}
     <section class="screen cardscr" data-s="4" aria-label="Passo 4 de 4">
       <div class="card">
         <div class="prog"><button class="back" type="button">← voltar</button><i><b style="width:100%"></b></i><span>PASSO 4 DE 4</span></div>
-        <div class="scene"><img src="/portugal/img/jp-letreiro-sol.webp" alt="Letreiro de João Pessoa na orla ao nascer do sol, entre coqueiros" width="1200" height="799" loading="lazy" style="object-position:58% 88%"><p class="top">Aqui o sol nasce primeiro. Falta só a conversa.</p></div>
+        <div class="scene"><img data-src="/portugal/img/jp-letreiro-sol.webp" alt="Letreiro de João Pessoa na orla ao nascer do sol, entre coqueiros" width="1200" height="799" style="object-position:58% 88%"><p class="top">Aqui o sol nasce primeiro. Falta só a conversa.</p></div>
         <div class="body">
           <h2 id="agTitulo">Quando podemos falar?</h2>
           <p class="intro" id="agIntro">Conversa rápida de 10 minutos por vídeo ou chamada, no WhatsApp, com um dos nossos consultores. Sem compromisso.</p>
@@ -307,7 +318,7 @@ footer li{margin:0 0 6px;word-break:break-word}
     <!-- 5 · SUCESSO -->
     <section class="screen cardscr ok" data-s="5" aria-label="Conversa marcada">
       <div class="card">
-        <div class="scene"><img src="/portugal/img/lp-fachada-noite.webp" alt="Fachada do Live Park ao anoitecer (imagem ilustrativa, em desenvolvimento)" width="1200" height="675" loading="lazy" style="object-position:50% 40%"><span class="tagdev">Imagem ilustrativa · em desenvolvimento</span><p>Até já, em João Pessoa.</p></div>
+        <div class="scene"><img data-src="/portugal/img/lp-fachada-noite.webp" alt="Fachada do Live Park ao anoitecer (imagem ilustrativa, em desenvolvimento)" width="1200" height="675" style="object-position:50% 40%"><span class="tagdev">Imagem ilustrativa · em desenvolvimento</span><p>Até já, em João Pessoa.</p></div>
         <div class="body">
           <h2 id="okTitle">Conversa marcada.</h2>
           <p>Um dos nossos consultores vai ligar-lhe pelo WhatsApp, neste número, à hora marcada: uma conversa rápida de 10 minutos, por vídeo ou chamada. Vai receber a confirmação no WhatsApp.</p>
@@ -327,7 +338,7 @@ footer li{margin:0 0 6px;word-break:break-word}
 <section class="sec" id="cidade">
   <div class="wrap">
     <h2 class="h2 rv">Entretanto, conheça João Pessoa.</h2>
-    <div class="photo rv"><img src="/portugal/img/jp-orla-cabo-branco.webp" alt="Orla de Cabo Branco e Tambaú vista do alto, com prédios baixos junto ao mar" loading="lazy" width="1200" height="675"></div>
+    <div class="photo rv"><img data-src="/portugal/img/jp-orla-cabo-branco.webp" alt="Orla de Cabo Branco e Tambaú vista do alto, com prédios baixos junto ao mar" width="1200" height="675"></div>
     <ul class="why rv">
       <li><strong>Orla sem espigões</strong><span>A Lei do Gabarito limita a altura dos prédios junto ao mar.<sup>1</sup></span></li>
       <li><strong>Mata atlântica dentro da cidade</strong><span>Cerca de 515 hectares de floresta na Mata do Buraquinho, no meio de João Pessoa.<sup>1</sup></span></li>
@@ -394,7 +405,14 @@ footer li{margin:0 0 6px;word-break:break-word}
   }
   show(0);
 
-  document.getElementById("ctaHero").addEventListener("click", function(){ track("CliqueComecar"); go(1); });
+  // fotos dos passos: só depois do carregamento da página (para não disputar banda com a foto do topo)
+  function carregaFotos(){
+    [].slice.call(document.querySelectorAll("img[data-src]")).forEach(function(i){ i.src = i.getAttribute("data-src"); i.removeAttribute("data-src"); });
+  }
+  if (document.readyState === "complete") setTimeout(carregaFotos, 200);
+  else window.addEventListener("load", function(){ setTimeout(carregaFotos, 200); });
+
+  document.getElementById("ctaHero").addEventListener("click", function(){ carregaFotos(); track("CliqueComecar"); go(1); });
 
   var rodape = document.getElementById("rodape");
 

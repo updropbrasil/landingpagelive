@@ -3,6 +3,22 @@
 # (sem barra) viram http://dominio:3000/portugal/ e dao 404.
 absolute_redirect off;
 
+# Cache (30/10). O nginx.conf e o Dockerfile da raiz NÃO são usados no Coolify (Nixpacks gera o próprio
+# nginx.conf e só inclui este arquivo), por isso o cache fica aqui, no nível http:
+# - HTML e o resto: no-cache (o navegador confere a versão a cada visita; um Redeploy vale na hora);
+# - config.json: no-store (o painel da live edita);
+# - /portugal/img e /portugal/fonts: 1 ano. Trocar uma imagem ou fonte = arquivo com NOME NOVO (e mudar no index.html);
+# - outras imagens, vídeos e fontes do site: 30 dias.
+map $uri $haus_cache_control {
+    default                                                       "no-cache";
+    /config.json                                                  "no-store, must-revalidate";
+    ~*^/portugal/(?:img|fonts)/                                   "public, max-age=31536000";
+    ~*\.(?:webp|avif|jpe?g|png|gif|ico|svg|mp4|webm|woff2?)$      "public, max-age=2592000";
+}
+add_header Cache-Control $haus_cache_control;
+gzip_types text/css application/javascript application/json image/svg+xml text/plain;
+gzip_vary on;
+
 
 types {
     text/html                                        html htm shtml;
