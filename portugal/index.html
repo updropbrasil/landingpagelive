@@ -132,6 +132,10 @@ sup{font-size:11px;color:var(--sand);font-weight:700;line-height:0}
 .intro{font-size:15.5px;color:var(--cmuted);margin:-6px 0 12px;line-height:1.35}
 .chips.four{grid-template-columns:repeat(4,1fr);gap:6px}
 .chips.four .chip{min-height:46px;font-size:16.5px}
+.chips.three .chip{min-height:46px;font-size:17px}
+.chips.one{grid-template-columns:1fr}
+.chips.two .chip,.chips.one .chip{font-size:18px;min-height:56px}
+.chips.two .chip small,.chips.one .chip small{font-size:13.5px}
 .chip:disabled{opacity:.42;cursor:not-allowed}
 .chips.five .chip:disabled small{color:var(--cmuted)}
 .agsel{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#FFF1E2;border:1px solid #F0CFAE;border-radius:8px;padding:8px 12px;margin:0 0 10px;font-size:15.5px;font-weight:600;color:var(--cink);line-height:1.3}
@@ -238,7 +242,7 @@ footer li{margin:0 0 6px;word-break:break-word}
             <div class="err" id="err" role="alert"></div>
             <button class="btn" type="submit">Continuar →</button>
           </form>
-          <p class="foot">O seu número só é usado para confirmar a reunião e para a chamada com um dos nossos consultores.</p>
+          <p class="foot">O seu número só é usado para confirmar a conversa e para a chamada com um dos nossos consultores.</p>
         </div>
       </div>
     </section>
@@ -283,34 +287,34 @@ footer li{margin:0 0 6px;word-break:break-word}
         <div class="prog"><button class="back" type="button">← voltar</button><i><b style="width:100%"></b></i><span>PASSO 4 DE 4</span></div>
         <div class="scene"><img src="/portugal/img/jp-letreiro-sol.webp" alt="Letreiro de João Pessoa na orla ao nascer do sol, entre coqueiros" width="1200" height="799" loading="lazy" style="object-position:58% 88%"><p class="top">Aqui o sol nasce primeiro. Falta só a conversa.</p></div>
         <div class="body">
-          <h2 id="agTitulo">Que dia prefere?</h2>
-          <p class="intro" id="agIntro">Chamada de 30 minutos com um dos nossos consultores, por vídeo no WhatsApp. Sem compromisso.</p>
+          <h2 id="agTitulo">Quando podemos falar?</h2>
+          <p class="intro" id="agIntro">Conversa rápida de 10 minutos por vídeo ou chamada, no WhatsApp, com um dos nossos consultores. Sem compromisso.</p>
           <div id="agDias">
-            <div class="chips five" id="diasBox"></div>
+            <div class="chips two" id="diasBox"></div>
           </div>
           <div id="agPer" hidden>
             <div class="agsel"><span id="agSelDia"></span><button type="button" data-volta="dia">Mudar dia</button></div>
             <p class="agload" id="agLoad" hidden>A ver os horários livres…</p>
-            <div class="chips" id="perBox"></div>
+            <div class="chips four" id="perBox"></div>
           </div>
           <div id="agHor" hidden>
             <div class="agsel"><span id="agSelPer"></span><button type="button" data-volta="per">Mudar</button></div>
-            <div class="chips four" id="horBox"></div>
+            <div class="chips three" id="horBox"></div>
           </div>
           <div class="err" id="err4" role="alert"></div>
-          <button class="btn" type="button" id="sendBtn" hidden>Confirmar reunião</button>
+          <button class="btn" type="button" id="sendBtn" hidden>Confirmar conversa</button>
           <p class="agfuso">Horas de Portugal continental.</p>
         </div>
       </div>
     </section>
 
     <!-- 5 · SUCESSO -->
-    <section class="screen cardscr ok" data-s="5" aria-label="Reunião confirmada">
+    <section class="screen cardscr ok" data-s="5" aria-label="Conversa marcada">
       <div class="card">
         <div class="scene"><img src="/portugal/img/lp-fachada-noite.webp" alt="Fachada do Live Park ao anoitecer (imagem ilustrativa, em desenvolvimento)" width="1200" height="675" loading="lazy" style="object-position:50% 40%"><span class="tagdev">Imagem ilustrativa · em desenvolvimento</span><p>Até já, em João Pessoa.</p></div>
         <div class="body">
-          <h2 id="okTitle">Reunião confirmada.</h2>
-          <p>Um dos nossos consultores vai ligar-lhe por vídeo pelo WhatsApp, neste número, à hora marcada. Vai receber a confirmação no WhatsApp.</p>
+          <h2 id="okTitle">Conversa marcada.</h2>
+          <p>Um dos nossos consultores vai ligar-lhe pelo WhatsApp, neste número, à hora marcada: uma conversa rápida de 10 minutos, por vídeo ou chamada. Vai receber a confirmação no WhatsApp.</p>
           <ul class="resumo">
             <li><span>Dia</span><b id="rDia"></b></li>
             <li><span>Hora (Portugal)</span><b id="rPer"></b></li>
@@ -460,9 +464,11 @@ footer li{margin:0 0 6px;word-break:break-word}
     });
   });
 
-// ---- Agenda Portugal: horários de 30 min, fuso real (Europe/Lisbon e America/Sao_Paulo) ----
+// ---- Agenda Portugal: conversa de 10 min, só HOJE e AMANHÃ (fuso real Europe/Lisbon e America/Sao_Paulo) ----
+// Mesma regra na página, no pt-horarios e no "Cria o lead" (PT horário). Fonte: scratchpad/portugal/v10/ag.js
   var AG = (function(){
     var TZPT = "Europe/Lisbon", TZBR = "America/Sao_Paulo";
+    var DUR = 10, PASSO = 10, ANTECEDENCIA = 120, FECHA_HOJE = 20; // min de reunião, min entre horários, min à frente de agora, hora PT em que "hoje" fecha
     var DC = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
     var DL = ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"];
     var fmts = {};
@@ -481,61 +487,83 @@ footer li{margin:0 0 6px;word-break:break-word}
       for (var i = 0; i < 3; i++) { var p = partes(g, tz); g += alvo - Date.UTC(p.y, p.m - 1, p.d, p.h, p.mi); }
       return g;
     }
-    function hoje(tz, agora){ var p = partes(agora == null ? Date.now() : agora, tz); return [p.y, p.m, p.d]; }
+    function agoraMs(agora){ return agora == null ? Date.now() : agora; }
+    function hoje(tz, agora){ var p = partes(agoraMs(agora), tz); return [p.y, p.m, p.d]; }
+    function somaDias(h, n){ var d = new Date(Date.UTC(h[0], h[1] - 1, h[2] + n)); return d.getUTCFullYear() + "-" + pad(d.getUTCMonth() + 1) + "-" + pad(d.getUTCDate()); }
     function infoDia(iso){
       var a = iso.split("-"), d = new Date(Date.UTC(+a[0], +a[1] - 1, +a[2])), w = d.getUTCDay();
       var dd = pad(d.getUTCDate()), mm = pad(d.getUTCMonth() + 1);
       return { iso: iso, w: w, dow: DC[w], dm: dd + "/" + mm, curto: DC[w] + " " + dd + "/" + mm, longo: DL[w] + ", " + dd + "/" + mm,
                util: w !== 0 && w !== 6 && (dd + "/" + mm) !== "25/12" && (dd + "/" + mm) !== "01/01" };
     }
-    // próximos n dias úteis a começar amanhã (calendário de Portugal)
-    function proximosDias(n, agora){
-      var h = hoje(TZPT, agora), out = [], i = 1;
-      while (out.length < (n || 5) && i < 20) {
-        var d = new Date(Date.UTC(h[0], h[1] - 1, h[2] + i)); i++;
-        var x = infoDia(d.getUTCFullYear() + "-" + pad(d.getUTCMonth() + 1) + "-" + pad(d.getUTCDate()));
-        if (x.util) out.push(x);
-      }
-      return out;
-    }
     function periodoDe(minPt){ return minPt < 720 ? "Manhã" : minPt < 1080 ? "Tarde" : "Noite"; }
-    // Regra: 30 min; dentro de 09:00–22:00 em Portugal E 08:00–20:00 em Brasília; início a cada 30 min.
-    function horariosDia(iso){
+    // Todos os horários da regra num dia: 10 min, início de 10 em 10 min, dentro de 09:00–22:00 em Portugal E 08:00–20:00 em Brasília.
+    function horariosRegra(iso){
       var a = iso.split("-").map(Number), out = [];
-      for (var t = 0; t < 1440; t += 30) {
-        var ini = paraUtc(a[0], a[1], a[2], Math.floor(t / 60), t % 60, TZPT), fim = ini + 30 * 60000;
-        var pi = partes(ini, TZPT), pf = partes(fim, TZPT), bi = partes(ini, TZBR), bf = partes(fim, TZBR);
+      for (var t = 0; t < 1440; t += PASSO) {
+        var ini = paraUtc(a[0], a[1], a[2], Math.floor(t / 60), t % 60, TZPT), fim = ini + DUR * 60000;
+        var pi = partes(ini, TZPT), bi = partes(ini, TZBR), bf = partes(fim, TZBR);
         if (ymd(pi) !== iso || pi.h * 60 + pi.mi !== t) continue; // hora inexistente (mudança de hora)
-        var mpi = t, mpf = mpi + 30, mbi = bi.h * 60 + bi.mi, mbf = mbi + 30;
+        var mpi = t, mpf = mpi + DUR, mbi = bi.h * 60 + bi.mi, mbf = mbi + DUR;
         if (mpi < 540 || mpf > 1320) continue;
         if (ymd(bi) !== ymd(bf) || mbi < 480 || mbf > 1200) continue;
-        out.push({ inicio: new Date(ini).toISOString(), pt: hm(pi), br: hm(bi), periodo: periodoDe(mpi) });
+        out.push({ inicio: new Date(ini).toISOString(), pt: hm(pi), br: hm(bi), periodo: periodoDe(mpi), hora: pi.h });
       }
       return out;
     }
-    return { TZPT: TZPT, TZBR: TZBR, partes: partes, paraUtc: paraUtc, hoje: hoje, infoDia: infoDia, proximosDias: proximosDias, horariosDia: horariosDia, periodoDe: periodoDe, pad: pad, hm: hm, ymd: ymd };
+    // Horários que ainda se podem marcar: pelo menos 2 h à frente de agora.
+    function horariosDia(iso, agora){
+      var lim = agoraMs(agora) + ANTECEDENCIA * 60000;
+      return horariosRegra(iso).filter(function(s){ return Date.parse(s.inicio) >= lim; });
+    }
+    // Dias oferecidos: HOJE (até às 20h de Portugal e se ainda houver horário) e AMANHÃ, só em dias úteis (a janela de atendimento).
+    // Se nenhum servir (sexta à noite e fim de semana), o próximo dia útil, para a página nunca ficar sem agenda.
+    function diasOferta(agora){
+      agora = agoraMs(agora);
+      var h = hoje(TZPT, agora), pa = partes(agora, TZPT), out = [];
+      for (var i = 0; i <= 1; i++) {
+        var x = infoDia(somaDias(h, i)); x.rel = i === 0 ? "Hoje" : "Amanhã";
+        if (i === 0 && pa.h >= FECHA_HOJE) continue;
+        if (x.util && horariosDia(x.iso, agora).length) out.push(x);
+      }
+      for (var j = 2; !out.length && j < 10; j++) {
+        var y = infoDia(somaDias(h, j)); y.rel = DL[y.w].split("-")[0].replace(/^./, function(c){ return c.toUpperCase(); });
+        if (y.util && horariosDia(y.iso, agora).length) out.push(y);
+      }
+      return out;
+    }
+    // Validação no servidor: o dia tem de estar na oferta (agora ou há 30 min) e o horário na regra, com pelo menos 1 h de folga.
+    function horarioValido(ms, agora){
+      agora = agoraMs(agora);
+      var iso = ymd(partes(ms, TZPT));
+      var ok = diasOferta(agora).concat(diasOferta(agora - 30 * 60000)).some(function(d){ return d.iso === iso; });
+      if (!ok || ms < agora + 60 * 60000) return null;
+      var s = horariosRegra(iso).filter(function(x){ return Date.parse(x.inicio) === ms; })[0];
+      return s ? { slot: s, info: infoDia(iso) } : null;
+    }
+    return { TZPT: TZPT, TZBR: TZBR, DUR: DUR, PASSO: PASSO, ANTECEDENCIA: ANTECEDENCIA, partes: partes, paraUtc: paraUtc, hoje: hoje, somaDias: somaDias, infoDia: infoDia,
+             horariosRegra: horariosRegra, horariosDia: horariosDia, diasOferta: diasOferta, horarioValido: horarioValido, periodoDe: periodoDe, pad: pad, hm: hm, ymd: ymd };
   })();
 
-  // ---- agenda: dia -> período -> hora (só horários livres, em hora de Portugal) ----
+  // ---- agenda: dia (hoje / amanhã) -> hora -> horário de 10 min (só horários livres, em hora de Portugal) ----
   var HORARIOS_URL = "https://n8n.updropbrasil.com.br/webhook/pt-horarios";
   var agTitulo = document.getElementById("agTitulo"), agIntro = document.getElementById("agIntro");
   var boxDias = document.getElementById("agDias"), boxPer = document.getElementById("agPer"), boxHor = document.getElementById("agHor");
   var diasBox = document.getElementById("diasBox"), perBox = document.getElementById("perBox"), horBox = document.getElementById("horBox");
   var agLoad = document.getElementById("agLoad");
   var sendBtn = document.getElementById("sendBtn");
-  var agEtapa = "dia", livres = {}, livresEm = {}, diaSel = null, perSel = "", horSel = null, pedido = 0;
-  var PER = ["Manhã", "Tarde", "Noite"];
+  var agEtapa = "dia", livres = {}, livresEm = {}, diaSel = null, perSel = null, horSel = null, pedido = 0;
 
   function cap(t){ return t ? t.charAt(0).toUpperCase() + t.slice(1) : ""; }
-  function horaFim(pt){ var a = pt.split(":"), m = +a[0] * 60 + +a[1] + 30; return AG.pad(Math.floor(m / 60)) + ":" + AG.pad(m % 60); }
+  function rotuloDia(d){ return (d.rel === "Hoje" || d.rel === "Amanhã" ? d.rel + ", " : "") + d.longo; }
   var diasLista = [];
-  try { diasLista = AG.proximosDias(5); } catch(_) { diasLista = []; }
+  try { diasLista = AG.diasOferta(); } catch(_) { diasLista = []; }
 
   function agMostra(et){
     agEtapa = et;
     boxDias.hidden = et !== "dia"; boxPer.hidden = et !== "per"; boxHor.hidden = et !== "hor" && et !== "ok";
     sendBtn.hidden = et !== "ok";
-    agTitulo.textContent = et === "dia" ? "Que dia prefere?" : et === "per" ? "Que período prefere?" : et === "hor" ? "A que horas?" : "Confirme a sua reunião";
+    agTitulo.textContent = et === "dia" ? "Quando podemos falar?" : et === "per" ? "A que horas?" : et === "hor" ? "Escolha o horário" : "Confirme a sua conversa";
     agIntro.hidden = et !== "dia";
   }
   function agVolta(){
@@ -550,16 +578,17 @@ footer li{margin:0 0 6px;word-break:break-word}
     });
   });
 
-  function guarda(d){
+  function guarda(d, lista){
     (d && d.dias || []).forEach(function(x){ livres[x.dia] = x.horarios || []; livresEm[x.dia] = Date.now(); });
-    if (!diasLista.length && d && d.dias && d.dias.length > 1) diasLista = d.dias.map(function(x){ return AG.infoDia(x.dia); });
+    // a lista de dias vem do servidor (hoje e amanhã, ou o próximo dia útil)
+    if (lista && d && d.dias && d.dias.length) diasLista = d.dias.map(function(x){ var i = AG.infoDia(x.dia); i.rel = x.rel || ""; return i; });
   }
   function busca(dia, cb){
     var n = ++pedido, feito = false;
     var t = setTimeout(function(){ if (!feito) { feito = true; cb(false); } }, 8000);
     fetch(HORARIOS_URL + (dia ? "?dia=" + dia : ""), { cache: "no-store" })
       .then(function(r){ return r.json(); })
-      .then(function(d){ if (feito) return; feito = true; clearTimeout(t); if (d && d.ok) { guarda(d); cb(true, n); } else cb(false, n); })
+      .then(function(d){ if (feito) return; feito = true; clearTimeout(t); if (d && d.ok) { guarda(d, !dia); cb(true, n); } else cb(false, n); })
       .catch(function(){ if (feito) return; feito = true; clearTimeout(t); cb(false, n); });
   }
   var diasCarregados = 0;
@@ -568,11 +597,20 @@ footer li{margin:0 0 6px;word-break:break-word}
     diasCarregados = Date.now();
     busca("", function(ok){ if (!ok) diasCarregados = 0; if (agEtapa === "dia") desenhaDias(); });
   }
-  // horários do dia: do servidor; se o servidor falhar, a regra local (o servidor confirma no envio)
+  // horários do dia: do servidor; se o servidor falhar, a regra local (o servidor confirma no envio). Nunca menos de ~2 h à frente.
   function horariosDe(iso){
-    if (livres[iso]) return livres[iso];
-    try { return AG.horariosDia(iso); } catch(_) { return []; }
+    var hs;
+    if (livres[iso]) hs = livres[iso];
+    else { try { hs = AG.horariosDia(iso); } catch(_) { hs = []; } }
+    var lim = Date.now() + (AG.ANTECEDENCIA - 15) * 60000;
+    return hs.filter(function(x){ return Date.parse(x.inicio) >= lim; });
   }
+  function horasDe(hs){
+    var out = [];
+    hs.forEach(function(x){ var h = x.hora != null ? x.hora : +x.pt.split(":")[0]; if (out.indexOf(h) < 0) out.push(h); });
+    return out;
+  }
+  function horaDe(x){ return x.hora != null ? x.hora : +x.pt.split(":")[0]; }
 
   function chip(html, aria){
     var b = document.createElement("button");
@@ -582,9 +620,10 @@ footer li{margin:0 0 6px;word-break:break-word}
   }
   function desenhaDias(){
     diasBox.innerHTML = "";
+    diasBox.className = "chips" + (diasLista.length === 1 ? " one" : " two");
     diasLista.forEach(function(d){
-      var sem = livres[d.iso] && !livres[d.iso].length;
-      var b = chip(d.dow + "<small>" + (sem ? "cheio" : d.dm) + "</small>", d.longo + (sem ? ", sem horários livres" : ""));
+      var sem = livres[d.iso] && !horariosDe(d.iso).length;
+      var b = chip((d.rel || d.dow) + "<small>" + (sem ? "sem horários" : d.dow.toLowerCase() + " " + d.dm) + "</small>", rotuloDia(d) + (sem ? ", sem horários livres" : ""));
       if (sem) b.disabled = true;
       b.addEventListener("click", function(){ if (!busy) escolheDia(d); });
       diasBox.appendChild(b);
@@ -594,9 +633,9 @@ footer li{margin:0 0 6px;word-break:break-word}
 
   function escolheDia(d){
     hideErr(err4);
-    diaSel = d; perSel = ""; horSel = null;
+    diaSel = d; perSel = null; horSel = null;
     A.reuniao_dia = d.iso; A.reuniao_dia_label = d.longo; A.reuniao_dia_curto = d.curto;
-    document.getElementById("agSelDia").textContent = cap(d.longo);
+    document.getElementById("agSelDia").textContent = cap(rotuloDia(d));
     track("AgendaDia");
     agMostra("per");
     var fresco = livres[d.iso] && Date.now() - (livresEm[d.iso] || 0) < 45000;
@@ -604,30 +643,30 @@ footer li{margin:0 0 6px;word-break:break-word}
     perBox.innerHTML = ""; agLoad.hidden = false;
     busca(d.iso, function(){ agLoad.hidden = true; if (diaSel === d && agEtapa === "per") desenhaPer(); });
   }
+  // passo "hora": as horas cheias que têm pelo menos um horário livre
   function desenhaPer(){
     agLoad.hidden = true;
     perBox.innerHTML = "";
-    var hs = horariosDe(diaSel.iso), n = 0;
-    PER.forEach(function(p){
-      var h = hs.filter(function(x){ return x.periodo === p; });
-      if (!h.length) return; n++;
-      var b = chip(p + "<small>" + h[0].pt.replace(":00", "h").replace(":30", "h30") + "–" + horaFim(h[h.length - 1].pt).replace(":00", "h").replace(":30", "h30") + "</small>", p + ", das " + h[0].pt + " às " + horaFim(h[h.length - 1].pt));
-      b.addEventListener("click", function(){ if (!busy) escolhePer(p); });
+    var hs = horariosDe(diaSel.iso), hrs = horasDe(hs);
+    hrs.forEach(function(h){
+      var n = hs.filter(function(x){ return horaDe(x) === h; }).length;
+      var b = chip(h + "h<small>" + n + (n === 1 ? " horário" : " horários") + "</small>", "Às " + h + " horas, " + n + " horários livres");
+      b.addEventListener("click", function(){ if (!busy) escolhePer(h); });
       perBox.appendChild(b);
     });
-    perBox.className = "chips" + (n === 2 ? " two" : "");
-    if (!n) { livres[diaSel.iso] = []; diaSel = null; agMostra("dia"); desenhaDias(); showErr(err4, "Esse dia já não tem horários livres. Escolha outro dia."); }
+    perBox.className = "chips four";
+    if (!hrs.length) { livres[diaSel.iso] = []; diaSel = null; agMostra("dia"); desenhaDias(); showErr(err4, "Esse dia já não tem horários livres. Escolha outro dia."); }
   }
-  function escolhePer(p){
+  function escolhePer(h){
     hideErr(err4);
-    perSel = p; horSel = null; A.reuniao_periodo = p;
-    document.getElementById("agSelPer").textContent = cap(diaSel.longo) + " · " + p;
+    perSel = h; horSel = null;
+    document.getElementById("agSelPer").textContent = cap(rotuloDia(diaSel)) + " · " + h + "h";
     track("AgendaPeriodo");
     agMostra("hor"); desenhaHor();
   }
   function desenhaHor(){
     horBox.innerHTML = "";
-    var hs = horariosDe(diaSel.iso).filter(function(x){ return x.periodo === perSel; });
+    var hs = horariosDe(diaSel.iso).filter(function(x){ return horaDe(x) === perSel; });
     if (!hs.length) { horSel = null; agMostra("per"); desenhaPer(); return; }
     var bs = [];
     hs.forEach(function(h){
@@ -638,6 +677,7 @@ footer li{margin:0 0 6px;word-break:break-word}
         horSel = h;
         bs.forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
         A.reuniao_inicio_iso = h.inicio; A.reuniao_hora_pt = h.pt; A.reuniao_hora_br = h.br;
+        A.reuniao_periodo = h.periodo || AG.periodoDe(+h.pt.split(":")[0] * 60 + +h.pt.split(":")[1]);
         track("AgendaHora");
         agMostra("ok");
       });
@@ -670,7 +710,7 @@ footer li{margin:0 0 6px;word-break:break-word}
   function setBusy(on){
     busy = on;
     sendBtn.disabled = on;
-    sendBtn.textContent = on ? "A CONFIRMAR..." : "Confirmar reunião";
+    sendBtn.textContent = on ? "A CONFIRMAR..." : "Confirmar conversa";
   }
 
   var eventId = "";
@@ -689,7 +729,7 @@ footer li{margin:0 0 6px;word-break:break-word}
       reuniao_dia: A.reuniao_dia, reuniao_dia_label: A.reuniao_dia_label,
       reuniao_semana: A.reuniao_dia_label, reuniao_periodo: A.reuniao_periodo, reuniao_formato: A.reuniao_formato,
       reuniao_inicio_iso: A.reuniao_inicio_iso, reuniao_hora_pt: A.reuniao_hora_pt, reuniao_hora_br: A.reuniao_hora_br,
-      event_id: eventId, fbp: cookie("_fbp"), fbc: fbc, user_agent: navigator.userAgent, variante: "portugal"
+      event_id: eventId, fbp: cookie("_fbp"), fbc: fbc, user_agent: navigator.userAgent, variante: "portugal", agenda_v: "hoje-amanha-10"
     };
     ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){ payload[k] = q.get(k) || ""; });
     payload.fbclid = fbclid;
@@ -718,11 +758,11 @@ footer li{margin:0 0 6px;word-break:break-word}
   function success(detalhe){
     var pn = A.nome.split(/\s+/)[0] || "";
     if (/\d/.test(pn)) pn = "";
-    document.getElementById("okTitle").textContent = "Reunião confirmada" + (pn ? ", " + pn : "") + ".";
-    var dl = A.reuniao_dia_label || "";
+    document.getElementById("okTitle").textContent = "Conversa marcada" + (pn ? ", " + pn : "") + ".";
+    var dl = diaSel ? rotuloDia(diaSel) : (A.reuniao_dia_label || "");
     document.getElementById("rDia").textContent = dl.charAt(0).toUpperCase() + dl.slice(1);
     document.getElementById("rPer").textContent = A.reuniao_hora_pt ? "às " + A.reuniao_hora_pt : A.reuniao_periodo;
-    document.getElementById("rFor").textContent = "Videochamada no WhatsApp";
+    document.getElementById("rFor").textContent = "10 min · vídeo ou chamada no WhatsApp";
     go(5);
     // a cidade só aparece (e a página só rola) depois da confirmação
     document.getElementById("depois").hidden = false;
