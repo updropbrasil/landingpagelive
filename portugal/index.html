@@ -96,6 +96,8 @@ sup{font-size:11px;color:var(--sand);font-weight:700;line-height:0}
 .s0 h1{font-size:clamp(38px,10.6vw,64px);line-height:1;margin:0 0 10px}
 .s0 .sub{font-size:clamp(17px,4.6vw,21px);line-height:1.35;color:var(--ink);font-weight:500;margin:0 0 14px}
 .s0 .kick{margin-bottom:12px}
+.s0 .sub:has(+ .prazo){margin-bottom:6px}
+.s0 .prazo{font-size:12.5px;line-height:1.4;font-weight:500;color:var(--soft);margin:0 0 12px;text-wrap:pretty}
 .card0{flex:none;width:100%;height:auto!important;max-height:none;margin:0 auto}
 .card0 .prog{padding:12px 18px 4px}
 .card0 .body{padding:8px 18px 16px}
@@ -105,6 +107,8 @@ sup{font-size:11px;color:var(--sand);font-weight:700;line-height:0}
 @media (max-height:760px){
   .s0 h1{font-size:clamp(32px,8.8vw,52px)}
   .s0 .sub{font-size:16.5px;margin-bottom:10px}
+  .s0 .sub:has(+ .prazo){margin-bottom:4px}
+  .s0 .prazo{font-size:12px;margin-bottom:9px}
   .s0 .kick{margin-bottom:8px}
   .card0 .field input,.card0 .field select{min-height:50px}
   .card0 .tel select{background-position:calc(100% - 18px) 22px,calc(100% - 13px) 22px}
@@ -243,6 +247,7 @@ footer li{margin:0 0 6px;word-break:break-word}
           <p class="kick">Para quem vive em Portugal</p>
           <h1>Continua a viver a sua vida aí. E aqui tem um imóvel seu.</h1>
           <p class="sub">O seu euro compra um flat a 170 m da praia, em João Pessoa, no Brasil.</p>
+          <p class="prazo">Pré-lançamento · obra prevista para 2027 · entrega prevista para o&nbsp;2.º&nbsp;semestre de&nbsp;2031</p>
         </div>
         <div class="card card0">
           <div class="prog"><i><b style="width:25%"></b></i><span>PASSO 1 DE 4</span></div>
